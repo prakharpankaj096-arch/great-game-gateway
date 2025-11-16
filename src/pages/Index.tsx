@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import GlowCard from "@/components/GlowCard";
 import SectionHeader from "@/components/SectionHeader";
 import RotatingLogo from "@/components/RotatingLogo";
+import BrandMarquee from "@/components/BrandMarquee";
 
 const Index = () => {
   const services = [
@@ -74,6 +75,9 @@ const Index = () => {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* Brand Marquee */}
+      <BrandMarquee />
 
       {/* Value Props */}
       <section className="section-padding relative">
