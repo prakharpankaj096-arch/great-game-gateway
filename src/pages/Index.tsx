@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Zap, Rocket, TrendingUp, Code, Lightbulb, Target } from "lucide-react";
+import { motion } from "framer-motion";
+import GlowCard from "@/components/GlowCard";
+import SectionHeader from "@/components/SectionHeader";
+import RotatingLogo from "@/components/RotatingLogo";
 
 const Index = () => {
   const services = [
@@ -29,108 +32,143 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-primary/10 via-background to-background">
-        <div className="container-custom mx-auto text-center">
-          <div className="flex justify-center items-center space-x-3 mb-6">
-            <h1 className="text-5xl md:text-7xl font-bold gradient-text">g8g</h1>
-            <span className="text-5xl md:text-7xl">♾</span>
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 radial-glow" />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="container-custom mx-auto text-center relative z-10"
+        >
+          <div className="mb-6">
+            <RotatingLogo />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-3xl md:text-5xl font-bold mb-6"
+          >
             Turning Great Ideas into Great Products
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          >
             We build exceptional MVPs and digital products that help startups and businesses scale from zero to hero
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Button size="lg" asChild className="neon-border">
               <Link to="/contact">Get Started</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" asChild className="neon-border">
               <Link to="/portfolio">View Our Work</Link>
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Value Props */}
-      <section className="section-padding bg-background">
+      <section className="section-padding relative">
         <div className="container-custom mx-auto">
+          <SectionHeader 
+            title="What We Deliver" 
+            subtitle="Three pillars of exceptional product development"
+          />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="card-hover border-border">
-              <CardContent className="pt-6 text-center">
+            <GlowCard delay={0}>
+              <div className="text-center">
                 <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Lightning Fast</h3>
                 <p className="text-muted-foreground">
                   Launch your MVP in 3 weeks with our streamlined process
                 </p>
-              </CardContent>
-            </Card>
-            <Card className="card-hover border-border">
-              <CardContent className="pt-6 text-center">
+              </div>
+            </GlowCard>
+            <GlowCard delay={0.1}>
+              <div className="text-center">
                 <Rocket className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Innovation First</h3>
                 <p className="text-muted-foreground">
                   Cutting-edge technology and modern development practices
                 </p>
-              </CardContent>
-            </Card>
-            <Card className="card-hover border-border">
-              <CardContent className="pt-6 text-center">
+              </div>
+            </GlowCard>
+            <GlowCard delay={0.2}>
+              <div className="text-center">
                 <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Built to Scale</h3>
                 <p className="text-muted-foreground">
                   Products designed to grow from MVP to millions of users
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </GlowCard>
           </div>
         </div>
       </section>
 
       {/* Services Preview */}
-      <section className="section-padding bg-muted/30">
-        <div className="container-custom mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Do</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              End-to-end product development services to bring your vision to life
-            </p>
-          </div>
+      <section className="section-padding relative">
+        <div className="absolute inset-0 radial-glow" />
+        <div className="container-custom mx-auto relative z-10">
+          <SectionHeader 
+            title="What We Build" 
+            subtitle="End-to-end product development services to bring your vision to life"
+          />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="card-hover border-border">
-                <CardContent className="pt-6">
-                  <div className="mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <Button variant="link" className="p-0" asChild>
-                    <Link to="/services">Learn More →</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+              <GlowCard key={index} delay={index * 0.1}>
+                <div className="mb-4">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                <p className="text-muted-foreground mb-4">{service.description}</p>
+                <Button variant="link" className="p-0 text-primary hover:text-primary-glow" asChild>
+                  <Link to="/services">Learn More →</Link>
+                </Button>
+              </GlowCard>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Button size="lg" asChild>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <Button size="lg" asChild className="neon-border">
               <Link to="/services">View All Services</Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container-custom mx-auto text-center">
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-glow/20" />
+        <div className="absolute inset-0 radial-glow" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container-custom mx-auto text-center relative z-10"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Build Your MVP?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl mb-8 text-muted-foreground">
             Let's turn your idea into reality in just 3 weeks
           </p>
-          <Button size="lg" variant="secondary" asChild>
+          <Button size="lg" asChild className="neon-border">
             <Link to="/contact">Start Your Project</Link>
           </Button>
-        </div>
+        </motion.div>
       </section>
 
       <Footer />
