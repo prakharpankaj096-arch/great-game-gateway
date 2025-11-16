@@ -30,21 +30,21 @@ const Navigation = () => {
 
   return (
     <motion.nav
-      initial={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+      initial={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
       animate={{
-        backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0.3)",
+        backgroundColor: isScrolled ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0.95)",
       }}
       transition={{ duration: 0.3 }}
-      className={`fixed top-0 w-full backdrop-blur-md z-50 border-b transition-all duration-300 ${
-        isScrolled ? "border-primary/30 shadow-[0_4px_20px_rgba(168,85,247,0.2)]" : "border-border/50"
+      className={`fixed top-0 w-full backdrop-blur-xl z-50 border-b transition-all duration-300 ${
+        isScrolled ? "border-primary/50 shadow-[0_4px_30px_rgba(168,85,247,0.4)]" : "border-primary/30 shadow-[0_2px_20px_rgba(168,85,247,0.2)]"
       }`}
     >
       <div className="container-custom mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold gradient-text">g8g</span>
+            <span className="text-2xl font-bold text-white drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">g8g</span>
             <motion.span
-              className="text-xl"
+              className="text-xl brightness-150"
               animate={{ rotate: 360 }}
               transition={{ duration: 12, ease: "linear", repeat: Infinity }}
             >
@@ -58,14 +58,16 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.path) ? "text-primary" : "text-foreground"
+                className={`text-sm font-semibold transition-all duration-200 ${
+                  isActive(link.path) 
+                    ? "text-primary brightness-150 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]" 
+                    : "text-white/90 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button asChild>
+            <Button asChild className="bg-primary hover:bg-primary/90 text-white font-semibold shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:shadow-[0_0_30px_rgba(168,85,247,0.7)]">
               <Link to="/contact">Get Started</Link>
             </Button>
           </div>
