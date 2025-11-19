@@ -29,13 +29,14 @@ const Navigation = () => {
   return (
     <div className="fixed top-0 w-full z-50 flex justify-center pt-6 px-4">
       <motion.nav
-        initial={{ padding: "1rem 2rem", borderRadius: "2rem" }}
+        initial={{ padding: "1rem 2rem", borderRadius: "2rem", maxWidth: "72rem" }}
         animate={{
           padding: isScrolled ? "0.75rem 1.5rem" : "1rem 2rem",
           borderRadius: isScrolled ? "1.5rem" : "2rem",
+          maxWidth: isScrolled ? "60rem" : "72rem",
         }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="backdrop-blur-xl bg-black/60 border border-white/10 shadow-[0_8px_32px_rgba(168,85,247,0.15)] max-w-6xl w-full"
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="backdrop-blur-xl bg-black/20 border border-white/10 shadow-[0_8px_32px_rgba(168,85,247,0.15)] w-full"
       >
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">

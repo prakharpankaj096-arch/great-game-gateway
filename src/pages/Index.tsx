@@ -91,7 +91,7 @@ const Index = () => {
       <BrandMarquee />
 
       {/* What We Deliver */}
-      <section className="section-padding relative">
+      <section className="py-24 relative">
         <div className="container-custom mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -203,7 +203,7 @@ const Index = () => {
       </section>
 
       {/* What We Build */}
-      <section className="section-padding relative">
+      <section className="py-24 relative">
         <div className="absolute inset-0 radial-glow" />
         <div className="container-custom mx-auto relative z-10">
           <motion.div
@@ -255,7 +255,7 @@ const Index = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-center mt-12"
+            className="text-center mt-16 mb-8"
           >
             <Button size="lg" asChild className="neon-border">
               <Link to="/services">View All Services</Link>
@@ -265,7 +265,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-glow/20" />
         <div className="absolute inset-0 radial-glow" />
         <motion.div
