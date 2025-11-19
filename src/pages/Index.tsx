@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Zap, Rocket, TrendingUp, Code, Lightbulb, Target } from "lucide-react";
+import { Zap, Rocket, TrendingUp, Code, Lightbulb, Target, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import GlowCard from "@/components/GlowCard";
+import FlipCard from "@/components/FlipCard";
 import SectionHeader from "@/components/SectionHeader";
 import RotatingLogo from "@/components/RotatingLogo";
 import BrandMarquee from "@/components/BrandMarquee";
@@ -33,7 +33,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-32 pb-24 px-4 overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 radial-glow" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -41,36 +41,47 @@ const Index = () => {
           transition={{ duration: 0.8 }}
           className="container-custom mx-auto text-center relative z-10"
         >
-          <div className="mb-6">
+          <div className="mb-8">
             <RotatingLogo />
           </div>
-          <motion.h2
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-3xl md:text-5xl font-bold mb-6"
-          >
-            Turning Great Ideas into Great Products
-          </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-sm md:text-base tracking-[0.3em] text-muted-foreground/80 mb-6 uppercase"
           >
-            We build exceptional MVPs and digital products that help startups and businesses scale from zero to hero
+            Product Development Partner
           </motion.p>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
+          >
+            Turning <span className="gradient-text">Great Ideas</span>
+            <br />
+            Into <span className="gradient-text">Great Products</span>
+          </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <Button size="lg" asChild className="neon-border">
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-primary hover:bg-primary/90 text-white font-semibold px-12 py-6 text-lg rounded-full shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:shadow-[0_0_40px_rgba(168,85,247,0.8)] transition-all"
+            >
               <Link to="/contact">Get Started</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="neon-border">
-              <Link to="/portfolio">View Our Work</Link>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              asChild 
+              className="border-2 border-foreground/20 hover:border-primary/60 text-foreground hover:text-primary px-12 py-6 text-lg rounded-full backdrop-blur-sm transition-all"
+            >
+              <Link to="/contact">Book a Call</Link>
             </Button>
           </motion.div>
         </motion.div>
@@ -87,33 +98,99 @@ const Index = () => {
             subtitle="Three pillars of exceptional product development"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <GlowCard delay={0}>
-              <div className="text-center">
-                <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Lightning Fast</h3>
-                <p className="text-muted-foreground">
-                  Launch your MVP in 3 weeks with our streamlined process
-                </p>
-              </div>
-            </GlowCard>
-            <GlowCard delay={0.1}>
-              <div className="text-center">
-                <Rocket className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Innovation First</h3>
-                <p className="text-muted-foreground">
-                  Cutting-edge technology and modern development practices
-                </p>
-              </div>
-            </GlowCard>
-            <GlowCard delay={0.2}>
-              <div className="text-center">
-                <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Built to Scale</h3>
-                <p className="text-muted-foreground">
-                  Products designed to grow from MVP to millions of users
-                </p>
-              </div>
-            </GlowCard>
+            <FlipCard
+              delay={0}
+              frontContent={
+                <div className="text-center">
+                  <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Lightning Fast</h3>
+                  <p className="text-muted-foreground">
+                    Launch your MVP in 3 weeks with our streamlined process
+                  </p>
+                </div>
+              }
+              backContent={
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">Speed Matters</h3>
+                  <ul className="space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Rapid prototyping & iteration</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Agile development methodology</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Weekly milestone delivery</span>
+                    </li>
+                  </ul>
+                </div>
+              }
+            />
+            <FlipCard
+              delay={0.1}
+              frontContent={
+                <div className="text-center">
+                  <Rocket className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Innovation First</h3>
+                  <p className="text-muted-foreground">
+                    Cutting-edge technology and modern development practices
+                  </p>
+                </div>
+              }
+              backContent={
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">Modern Stack</h3>
+                  <ul className="space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>AI-powered features & automation</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Cloud-native architecture</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Latest frameworks & best practices</span>
+                    </li>
+                  </ul>
+                </div>
+              }
+            />
+            <FlipCard
+              delay={0.2}
+              frontContent={
+                <div className="text-center">
+                  <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Built to Scale</h3>
+                  <p className="text-muted-foreground">
+                    Products designed to grow from MVP to millions of users
+                  </p>
+                </div>
+              }
+              backContent={
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">Growth Ready</h3>
+                  <ul className="space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Scalable infrastructure from day one</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Performance optimization built-in</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Easy to maintain & extend</span>
+                    </li>
+                  </ul>
+                </div>
+              }
+            />
           </div>
         </div>
       </section>
@@ -128,14 +205,35 @@ const Index = () => {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <GlowCard key={index} delay={index * 0.1}>
-                <div className="mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-muted-foreground mb-4">{service.description}</p>
-                <Button variant="link" className="p-0 text-primary hover:text-primary-glow" asChild>
-                  <Link to="/services">Learn More →</Link>
-                </Button>
-              </GlowCard>
+              <FlipCard
+                key={index}
+                delay={index * 0.1}
+                frontContent={
+                  <div>
+                    <div className="mb-4">{service.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    <p className="text-muted-foreground">{service.description}</p>
+                  </div>
+                }
+                backContent={
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4 text-primary">{service.title}</h3>
+                      <p className="text-foreground/90 mb-4">{service.description}</p>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-primary/40 hover:bg-primary/20 group" 
+                      asChild
+                    >
+                      <Link to="/services">
+                        Learn More 
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </div>
+                }
+              />
             ))}
           </div>
           <motion.div
