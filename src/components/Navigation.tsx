@@ -18,38 +18,35 @@ const Navigation = () => {
   }, [scrollY]);
 
   const links = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
-    { path: "/portfolio", label: "Portfolio" },
     { path: "/process", label: "Process" },
-    { path: "/contact", label: "Contact" },
+    { path: "/portfolio", label: "Portfolio" },
+    { path: "/contact", label: "Blog" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <motion.nav
-      initial={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
-      animate={{
-        backgroundColor: isScrolled ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0.95)",
-      }}
-      transition={{ duration: 0.3 }}
-      className={`fixed top-0 w-full backdrop-blur-xl z-50 border-b transition-all duration-300 ${
-        isScrolled ? "border-primary/50 shadow-[0_4px_30px_rgba(168,85,247,0.4)]" : "border-primary/30 shadow-[0_2px_20px_rgba(168,85,247,0.2)]"
-      }`}
-    >
-      <div className="container-custom mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-white drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">g8g</span>
+    <div className="fixed top-0 w-full z-50 flex justify-center pt-6 px-4">
+      <motion.nav
+        initial={{ padding: "1rem 2rem", borderRadius: "2rem" }}
+        animate={{
+          padding: isScrolled ? "0.75rem 1.5rem" : "1rem 2rem",
+          borderRadius: isScrolled ? "1.5rem" : "2rem",
+        }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="backdrop-blur-xl bg-black/60 border border-white/10 shadow-[0_8px_32px_rgba(168,85,247,0.15)] max-w-6xl w-full"
+      >
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center space-x-3">
             <motion.span
-              className="text-xl brightness-150"
+              className="text-3xl"
               animate={{ rotate: 360 }}
               transition={{ duration: 12, ease: "linear", repeat: Infinity }}
             >
               ♾
             </motion.span>
+            <span className="text-2xl font-bold text-white">g8g</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,23 +55,27 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-semibold transition-all duration-200 ${
+                className={`text-sm font-medium transition-all duration-200 ${
                   isActive(link.path) 
-                    ? "text-primary brightness-150 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]" 
-                    : "text-white/90 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
+                    ? "text-white" 
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="bg-primary hover:bg-primary/90 text-white font-semibold shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:shadow-[0_0_30px_rgba(168,85,247,0.7)]">
-              <Link to="/contact">Get Started</Link>
+            <Button 
+              asChild 
+              variant="outline"
+              className="border border-white/20 hover:border-white/40 text-white hover:bg-white/5 rounded-full px-6"
+            >
+              <Link to="/contact">Start Project</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -84,28 +85,28 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-4">
+          <div className="md:hidden py-4 space-y-4 border-t border-white/10 mt-4">
             {links.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`block text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.path) ? "text-primary" : "text-foreground"
+                className={`block text-sm font-medium transition-colors ${
+                  isActive(link.path) ? "text-white" : "text-white/70 hover:text-white"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="w-full">
+            <Button asChild variant="outline" className="w-full border-white/20 text-white">
               <Link to="/contact" onClick={() => setIsOpen(false)}>
-                Get Started
+                Start Project
               </Link>
             </Button>
           </div>
         )}
-      </div>
-    </motion.nav>
+      </motion.nav>
+    </div>
   );
 };
 

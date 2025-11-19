@@ -90,13 +90,20 @@ const Index = () => {
       {/* Brand Marquee */}
       <BrandMarquee />
 
-      {/* Value Props */}
+      {/* What We Deliver */}
       <section className="section-padding relative">
         <div className="container-custom mx-auto">
-          <SectionHeader 
-            title="What We Deliver" 
-            subtitle="Three pillars of exceptional product development"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionHeader 
+              title="What We Deliver" 
+              subtitle="Three pillars of exceptional product development"
+            />
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FlipCard
               delay={0}
@@ -195,14 +202,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Preview */}
+      {/* What We Build */}
       <section className="section-padding relative">
         <div className="absolute inset-0 radial-glow" />
         <div className="container-custom mx-auto relative z-10">
-          <SectionHeader 
-            title="What We Build" 
-            subtitle="End-to-end product development services to bring your vision to life"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionHeader 
+              title="What We Build" 
+              subtitle="End-to-end product development services to bring your vision to life"
+            />
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <FlipCard
