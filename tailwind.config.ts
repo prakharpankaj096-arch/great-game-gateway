@@ -18,6 +18,8 @@ export default {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        "background-light": "hsl(var(--background-light))",
+        surface: "hsl(var(--surface))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -38,6 +40,8 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          blue: "hsl(var(--accent-blue))",
+          purple: "hsl(var(--accent-purple))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -48,6 +52,7 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         "primary-glow": "hsl(var(--primary-glow))",
+        "border-glow": "hsl(var(--border-glow))",
       },
       borderRadius: {
         lg: "var(--radius)",
