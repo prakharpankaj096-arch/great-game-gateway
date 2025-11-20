@@ -41,19 +41,14 @@ const Index = () => {
           transition={{ duration: 0.8 }}
           className="container-custom mx-auto text-center relative z-10"
         >
-          {/* Logo Icon with Glow Container */}
+          {/* Centered Glowing Logo Icon */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mb-12 flex justify-center"
+            className="mb-16 flex justify-center"
           >
-            <div className="relative">
-              <div className="absolute inset-0 blur-3xl bg-gradient-to-r from-accent-blue/30 via-primary/40 to-accent-purple/30 rounded-[3rem]" />
-              <div className="relative bg-card/40 backdrop-blur-xl border border-border-glow/30 rounded-[2.5rem] p-12 shadow-glow">
-                <RotatingLogo size="text-8xl" />
-              </div>
-            </div>
+            <RotatingLogo variant="hero" />
           </motion.div>
 
           <motion.p
