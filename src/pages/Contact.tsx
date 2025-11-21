@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -36,7 +37,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
+
       <main className="flex-1 pt-24">
         {/* Hero */}
         <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-background">
@@ -69,7 +70,7 @@ const Contact = () => {
                       placeholder="Your name"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
                       Email *
@@ -84,7 +85,7 @@ const Contact = () => {
                       placeholder="your@email.com"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium mb-2">
                       Company
@@ -97,7 +98,7 @@ const Contact = () => {
                       placeholder="Your company name"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message *
@@ -112,7 +113,7 @@ const Contact = () => {
                       rows={6}
                     />
                   </div>
-                  
+
                   <Button type="submit" size="lg" className="w-full">
                     Send Message
                   </Button>
@@ -185,48 +186,14 @@ const Contact = () => {
                       We typically respond within 24 hours during business days. For urgent inquiries, please call us directly.
                     </p>
                   </CardContent>
+
                 </Card>
               </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="section-padding bg-muted/30">
-          <div className="container-custom mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Frequently Asked Questions
-            </h2>
-            <div className="max-w-3xl mx-auto space-y-6">
-              <Card className="border-border">
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-2">How long does it take to build an MVP?</h3>
-                  <p className="text-muted-foreground">
-                    Our standard MVP timeline is 3 weeks from kickoff to launch. Complex projects may take 4-6 weeks depending on requirements.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border">
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-2">What's included in the MVP package?</h3>
-                  <p className="text-muted-foreground">
-                    Full-stack development, UI/UX design, database setup, user authentication, deployment, and 2 weeks of post-launch support.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border">
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-2">Do you provide ongoing support?</h3>
-                  <p className="text-muted-foreground">
-                    Yes! We offer maintenance packages and can help scale your product as you grow. Discuss your needs during our consultation.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
+        <FAQ />
       </main>
 
       <Footer />
