@@ -100,7 +100,7 @@ const Index = () => {
       <BrandMarquee />
 
       {/* What We Deliver */}
-      <section className="py-24 relative">
+      <section className="py-24 md:py-32 relative">
         <div className="container-custom mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -113,7 +113,7 @@ const Index = () => {
               subtitle="Three pillars of exceptional product development"
             />
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 md:mb-24">
             <FlipCard
               delay={0}
               frontContent={
@@ -211,8 +211,11 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Spacer */}
+      <div className="h-24 md:h-32" />
+
       {/* What We Build */}
-      <section className="py-24 relative">
+      <section className="py-24 md:py-32 relative mt-24">
         <div className="absolute inset-0 radial-glow" />
         <div className="container-custom mx-auto relative z-10">
           <motion.div
@@ -226,7 +229,7 @@ const Index = () => {
               subtitle="End-to-end product development services to bring your vision to life"
             />
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 md:mb-24">
             {services.map((service, index) => (
               <FlipCard
                 key={index}
@@ -264,7 +267,7 @@ const Index = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-center mt-16 mb-8"
+            className="flex justify-center mt-12 md:mt-16"
           >
             <Button size="lg" asChild className="neon-border">
               <Link to="/services">View All Services</Link>
@@ -273,8 +276,11 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Spacer */}
+      <div className="h-24 md:h-32" />
+
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-glow/20" />
         <div className="absolute inset-0 radial-glow" />
         <motion.div
