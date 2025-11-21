@@ -17,7 +17,7 @@ const FlipCard = ({ frontContent, backContent, className = "", delay = 0 }: Flip
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className={`relative h-full ${className}`}
+      className={`relative h-full min-h-[280px] pb-8 ${className}`}
       style={{ perspective: "1000px" }}
       onHoverStart={() => setIsFlipped(true)}
       onHoverEnd={() => setIsFlipped(false)}
