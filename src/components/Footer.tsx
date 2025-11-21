@@ -1,97 +1,158 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Linkedin, Twitter, Github } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+  const footerLinks = {
+    company: [
+      { label: "Terms & Conditions", path: "/terms" },
+      { label: "Privacy Policy", path: "/privacy" },
+    ],
+    product: [
+      { label: "Integrations", path: "/integrations" },
+      { label: "Plans & Pricing", path: "/pricing" },
+      { label: "AI Agent for Support", path: "/support-agent" },
+      { label: "AI Agent for Revenue", path: "/revenue-agent" },
+      { label: "Help Center", path: "/help" },
+    ],
+    resources: [
+      { label: "Blog", path: "/blog" },
+      { label: "Integrations", path: "/integrations" },
+      { label: "Case Studies", path: "/case-studies" },
+
+    ],
+    partnerships: [
+      { label: "Partners Program", path: "/partners" },
+      { label: "Referral Program", path: "/referral" },
+    ],
+  };
+
   return (
-    <footer className="bg-muted/50 border-t border-border">
-      <div className="container-custom mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <span className="text-2xl font-bold gradient-text">g8g</span>
-              <span className="text-xl">♾</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Turning Great Ideas into Great Products
-            </p>
-          </div>
-
-          {/* Quick Links */}
+    <footer className="bg-[#0a0a0f] text-white pt-20 pb-10 border-t border-white/5">
+      <div className="container mx-auto px-4">
+        {/* Links Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+          {/* Company */}
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/portfolio" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Portfolio
-                </Link>
-              </li>
+            <h3 className="text-sm font-semibold text-white/40 uppercase tracking-wider mb-6">
+              Company
+            </h3>
+            <ul className="space-y-4">
+              {footerLinks.company.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-white/80 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Product */}
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground">MVP Development</li>
-              <li className="text-sm text-muted-foreground">Product Strategy</li>
-              <li className="text-sm text-muted-foreground">AI & SaaS Development</li>
-              <li className="text-sm text-muted-foreground">Custom Development</li>
+            <h3 className="text-sm font-semibold text-white/40 uppercase tracking-wider mb-6">
+              Product
+            </h3>
+            <ul className="space-y-4">
+              {footerLinks.product.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-white/80 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Resources */}
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Mail size={16} />
-                <span>hello@g8g.com</span>
-              </li>
-              <li className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Phone size={16} />
-                <span>+1 (555) 123-4567</span>
-              </li>
+            <h3 className="text-sm font-semibold text-white/40 uppercase tracking-wider mb-6">
+              Resources
+            </h3>
+            <ul className="space-y-4">
+              {footerLinks.resources.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-white/80 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-            <div className="flex space-x-4 mt-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Github size={20} />
-              </a>
-            </div>
+          </div>
+
+          {/* Partnerships */}
+          <div>
+            <h3 className="text-sm font-semibold text-white/40 uppercase tracking-wider mb-6">
+              Partnerships
+            </h3>
+            <ul className="space-y-4">
+              {footerLinks.partnerships.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-white/80 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">
-            © 2024 g8g. All rights reserved.
-          </p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
+        {/* Social Icons */}
+        <div className="flex justify-center gap-6 mb-16">
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.1 }}
+            className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-colors"
+          >
+            <Linkedin size={20} />
+          </motion.a>
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.1 }}
+            className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-colors"
+          >
+            <Phone size={20} />
+          </motion.a>
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.1 }}
+            className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-colors"
+          >
+            <Mail size={20} />
+          </motion.a>
+        </div>
+
+        {/* Large Logo */}
+        <div className="text-center mb-20">
+          <h1 className="text-[120px] md:text-[180px] font-bold leading-none tracking-tighter opacity-20 bg-clip-text text-transparent bg-gradient-to-b from-white to-transparent select-none">
+            g8g
+          </h1>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-xs text-white/40">
+          <p>© 2025 g8g. All rights reserved.</p>
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <Link to="/sitemap" className="hover:text-white transition-colors">
+              Sitemap
             </Link>
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Terms of Service
+            <Link to="/signup" className="hover:text-white transition-colors">
+              Sign Up
+            </Link>
+            <Link to="/contact" className="hover:text-white transition-colors">
+              Contact Sales
             </Link>
           </div>
         </div>
