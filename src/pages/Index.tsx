@@ -332,6 +332,7 @@ const Index = () => {
       </section>
 
       {/* Spacer */}
+      {/* Spacer */}
       <div className="h-24 md:h-32" />
 
       {/* CTA Section */}
@@ -341,7 +342,7 @@ const Index = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           className="container-custom mx-auto text-center relative z-10"
         >
