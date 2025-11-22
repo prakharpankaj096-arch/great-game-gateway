@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -41,12 +42,17 @@ const Contact = () => {
       <main className="flex-1 pt-24">
         {/* Hero */}
         <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-background">
-          <div className="container-custom mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="container-custom mx-auto text-center"
+          >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Get in Touch</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Ready to turn your idea into reality? Let's talk about your project and how we can help.
             </p>
-          </div>
+          </motion.div>
         </section>
 
         {/* Contact Section */}
@@ -54,7 +60,11 @@ const Contact = () => {
           <div className="container-custom mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
@@ -118,10 +128,15 @@ const Contact = () => {
                     Send Message
                   </Button>
                 </form>
-              </div>
+              </motion.div>
 
               {/* Contact Info */}
-              <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="space-y-6"
+              >
                 <div>
                   <h2 className="text-3xl font-bold mb-6">Contact Information</h2>
                   <p className="text-muted-foreground mb-8">
@@ -188,7 +203,7 @@ const Contact = () => {
                   </CardContent>
 
                 </Card>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
