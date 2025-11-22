@@ -155,8 +155,8 @@ const ProcessSection = () => {
           From idea to launch in 3 weeks – with zero guesswork in between.
         </p>
       </div>
-    </div>
+    </motion.div>
 
-  </section >;
+  </section>;
 };
 export default ProcessSection;
