@@ -147,126 +147,105 @@ const Index = () => {
             />
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 md:mb-24">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0 }}
-            >
-              <FlipCard
-                delay={0}
-                frontContent={
-                  <div className="text-center">
-                    <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Lightning Fast</h3>
-                    <p className="text-muted-foreground">
-                      Launch your MVP in 3 weeks with our streamlined process
-                    </p>
-                  </div>
-                }
-                backContent={
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold mb-4 text-primary">
-                      Speed Matters
-                    </h3>
-                    <ul className="space-y-2 text-left">
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Rapid prototyping & iteration</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Agile development methodology</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Weekly milestone delivery</span>
-                      </li>
-                    </ul>
-                  </div>
-                }
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <FlipCard
-                delay={0.1}
-                frontContent={
-                  <div className="text-center">
-                    <Rocket className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Innovation First</h3>
-                    <p className="text-muted-foreground">
-                      Cutting-edge technology and modern development practices
-                    </p>
-                  </div>
-                }
-                backContent={
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold mb-4 text-primary">
-                      Modern Stack
-                    </h3>
-                    <ul className="space-y-2 text-left">
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>AI-powered features & automation</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Cloud-native architecture</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Latest frameworks & best practices</span>
-                      </li>
-                    </ul>
-                  </div>
-                }
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <FlipCard
-                delay={0.2}
-                frontContent={
-                  <div className="text-center">
-                    <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Built to Scale</h3>
-                    <p className="text-muted-foreground">
-                      Products designed to grow from MVP to millions of users
-                    </p>
-                  </div>
-                }
-                backContent={
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold mb-4 text-primary">
-                      Growth Ready
-                    </h3>
-                    <ul className="space-y-2 text-left">
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Scalable infrastructure from day one</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Performance optimization built-in</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Easy to maintain & extend</span>
-                      </li>
-                    </ul>
-                  </div>
-                }
-              />
-            </motion.div>
+            <FlipCard
+              delay={0}
+              frontContent={
+                <div className="text-center">
+                  <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Lightning Fast</h3>
+                  <p className="text-muted-foreground">
+                    Launch your MVP in 3 weeks with our streamlined process
+                  </p>
+                </div>
+              }
+              backContent={
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">
+                    Speed Matters
+                  </h3>
+                  <ul className="space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Rapid prototyping & iteration</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Agile development methodology</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Weekly milestone delivery</span>
+                    </li>
+                  </ul>
+                </div>
+              }
+            />
+            <FlipCard
+              delay={0.1}
+              frontContent={
+                <div className="text-center">
+                  <Rocket className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Innovation First</h3>
+                  <p className="text-muted-foreground">
+                    Cutting-edge technology and modern development practices
+                  </p>
+                </div>
+              }
+              backContent={
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">
+                    Modern Stack
+                  </h3>
+                  <ul className="space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>AI-powered features & automation</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Cloud-native architecture</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Latest frameworks & best practices</span>
+                    </li>
+                  </ul>
+                </div>
+              }
+            />
+            <FlipCard
+              delay={0.2}
+              frontContent={
+                <div className="text-center">
+                  <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Built to Scale</h3>
+                  <p className="text-muted-foreground">
+                    Products designed to grow from MVP to millions of users
+                  </p>
+                </div>
+              }
+              backContent={
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">
+                    Growth Ready
+                  </h3>
+                  <ul className="space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Scalable infrastructure from day one</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Performance optimization built-in</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Easy to maintain & extend</span>
+                    </li>
+                  </ul>
+                </div>
+              }
+            />
           </div>
         </div>
       </section>
@@ -291,58 +270,51 @@ const Index = () => {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 md:mb-24">
             {services.map((service, index) => (
-              <motion.div
+              <FlipCard
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <FlipCard
-                  delay={0}
-                  frontContent={
+                delay={index * 0.1}
+                frontContent={
+                  <div>
+                    <div className="mb-4">{service.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </div>
+                }
+                backContent={
+                  <div className="h-full flex flex-col justify-between">
                     <div>
-                      <div className="mb-4">{service.icon}</div>
-                      <h3 className="text-xl font-semibold mb-2">
+                      <h3 className="text-2xl font-bold mb-4 text-primary">
                         {service.title}
                       </h3>
-                      <p className="text-muted-foreground">
-                        {service.description}
-                      </p>
+                      <ul className="space-y-2 text-left mb-4">
+                        {service.details?.map((point, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-foreground/90"
+                          >
+                            <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  }
-                  backContent={
-                    <div className="h-full flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-2xl font-bold mb-4 text-primary">
-                          {service.title}
-                        </h3>
-                        <ul className="space-y-2 text-left mb-4">
-                          {service.details?.map((point, i) => (
-                            <li
-                              key={i}
-                              className="flex items-start gap-2 text-foreground/90"
-                            >
-                              <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                              <span>{point}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <Button
-                        variant="outline"
-                        className="w-full border-primary/40 hover:bg-primary/20 group"
-                        asChild
-                      >
-                        <Link to="/services">
-                          Learn More
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </div>
-                  }
-                />
-              </motion.div>
+                    <Button
+                      variant="outline"
+                      className="w-full border-primary/40 hover:bg-primary/20 group"
+                      asChild
+                    >
+                      <Link to="/services">
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </div>
+                }
+              />
             ))}
           </div>
           <motion.div
