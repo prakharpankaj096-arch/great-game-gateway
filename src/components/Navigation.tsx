@@ -21,7 +21,7 @@ const Navigation = () => {
     { path: "/services", label: "Services" },
     { path: "/process", label: "Process" },
     { path: "/portfolio", label: "Portfolio" },
-    { path: "/contact", label: "Blog" },
+    { path: "/pricing", label: "Pricing" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -56,17 +56,16 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-all duration-200 ${
-                  isActive(link.path) 
-                    ? "text-white" 
+                className={`text-sm font-medium transition-all duration-200 ${isActive(link.path)
+                    ? "text-white"
                     : "text-white/70 hover:text-white"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button 
-              asChild 
+            <Button
+              asChild
               variant="outline"
               className="border border-white/20 hover:border-white/40 text-white hover:bg-white/5 rounded-full px-6"
             >
@@ -91,9 +90,8 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`block text-sm font-medium transition-colors ${
-                  isActive(link.path) ? "text-white" : "text-white/70 hover:text-white"
-                }`}
+                className={`block text-sm font-medium transition-colors ${isActive(link.path) ? "text-white" : "text-white/70 hover:text-white"
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
