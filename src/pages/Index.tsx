@@ -1,12 +1,29 @@
 import { Link } from "react-router-dom";
+
 import { Button } from "@/components/ui/button";
+
 import Navigation from "@/components/Navigation";
+
 import Footer from "@/components/Footer";
-import { Zap, Rocket, TrendingUp, Code, Lightbulb, Target, ArrowRight } from "lucide-react";
+
+import {
+  Zap,
+  Rocket,
+  TrendingUp,
+  Code,
+  Lightbulb,
+  Target,
+  ArrowRight,
+} from "lucide-react";
+
 import { motion } from "framer-motion";
+
 import FlipCard from "@/components/FlipCard";
+
 import SectionHeader from "@/components/SectionHeader";
+
 import RotatingLogo from "@/components/RotatingLogo";
+
 import BrandMarquee from "@/components/BrandMarquee";
 
 const Index = () => {
@@ -14,24 +31,40 @@ const Index = () => {
     {
       icon: <Code className="h-8 w-8 text-primary" />,
       title: "MVP Development",
-      description: "Build and launch your minimum viable product in weeks, not months",
+      description: "Build and launch your minimum viable product in weeks, not months.",
+      details: [
+        "Launch Faster – get to market in weeks, not months",
+        "Validate Your Idea With Real Users before scaling",
+        "Attract Investors & Early Adopters with a working product",
+      ],
     },
     {
       icon: <Lightbulb className="h-8 w-8 text-primary" />,
       title: "Product Strategy",
-      description: "Transform your vision into a clear, actionable product roadmap",
+      description: "Transform your vision into a clear, actionable product roadmap.",
+      details: [
+        "Aligns Product With Business Goals and KPIs",
+        "Prioritizes What Actually Matters for your users",
+        "Enables Faster, Smarter Decisions with data-driven insights",
+      ],
     },
     {
       icon: <Target className="h-8 w-8 text-primary" />,
       title: "AI & SaaS",
-      description: "Leverage cutting-edge AI and SaaS solutions for your business",
+      description:
+        "Leverage cutting-edge AI and SaaS solutions to build intelligent, scalable products.",
+      details: [
+        "Full-Stack SaaS Product Development from idea to launch",
+        "AI-Powered Automation to reduce manual work",
+        "Custom AI Models tailored to your business needs",
+      ],
     },
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-4 overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 radial-glow" />
@@ -59,7 +92,7 @@ const Index = () => {
           >
             Product Development Partner
           </motion.p>
-          
+
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -70,24 +103,24 @@ const Index = () => {
             <br />
             Into <span className="text-foreground">Great Products</span>
           </motion.h1>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <Button 
-              size="lg" 
-              asChild 
+            <Button
+              size="lg"
+              asChild
               className="bg-gradient-to-r from-primary to-accent-purple hover:opacity-90 text-white font-semibold px-12 py-7 text-lg rounded-full shadow-[0_0_40px_rgba(99,102,241,0.5)] hover:shadow-[0_0_60px_rgba(99,102,241,0.7)] transition-all"
             >
               <Link to="/contact">Get Started</Link>
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              asChild 
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
               className="border-2 border-border/60 hover:border-border-glow/60 bg-transparent text-foreground hover:bg-surface/50 px-12 py-7 text-lg rounded-full backdrop-blur-sm transition-all"
             >
               <Link to="/contact">Book a Call</Link>
@@ -108,8 +141,8 @@ const Index = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <SectionHeader 
-              title="What We Deliver" 
+            <SectionHeader
+              title="What We Deliver"
               subtitle="Three pillars of exceptional product development"
             />
           </motion.div>
@@ -127,7 +160,9 @@ const Index = () => {
               }
               backContent={
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-4 text-primary">Speed Matters</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-primary">
+                    Speed Matters
+                  </h3>
                   <ul className="space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -158,7 +193,9 @@ const Index = () => {
               }
               backContent={
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-4 text-primary">Modern Stack</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-primary">
+                    Modern Stack
+                  </h3>
                   <ul className="space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -189,7 +226,9 @@ const Index = () => {
               }
               backContent={
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-4 text-primary">Growth Ready</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-primary">
+                    Growth Ready
+                  </h3>
                   <ul className="space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -224,8 +263,8 @@ const Index = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <SectionHeader 
-              title="What We Build" 
+            <SectionHeader
+              title="What We Build"
               subtitle="End-to-end product development services to bring your vision to life"
             />
           </motion.div>
@@ -237,23 +276,39 @@ const Index = () => {
                 frontContent={
                   <div>
                     <div className="mb-4">{service.icon}</div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-muted-foreground">{service.description}</p>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {service.description}
+                    </p>
                   </div>
                 }
                 backContent={
                   <div className="h-full flex flex-col justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold mb-4 text-primary">{service.title}</h3>
-                      <p className="text-foreground/90 mb-4">{service.description}</p>
+                      <h3 className="text-2xl font-bold mb-4 text-primary">
+                        {service.title}
+                      </h3>
+                      <ul className="space-y-2 text-left mb-4">
+                        {service.details?.map((point, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-foreground/90"
+                          >
+                            <ArrowRight className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      className="w-full border-primary/40 hover:bg-primary/20 group" 
+                    <Button
+                      variant="outline"
+                      className="w-full border-primary/40 hover:bg-primary/20 group"
                       asChild
                     >
                       <Link to="/services">
-                        Learn More 
+                        Learn More
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
