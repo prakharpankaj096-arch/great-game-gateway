@@ -21,6 +21,7 @@ const Pricing = () => {
             bestFor: "Solo founders, early-stage experiments, pre-funding ideas",
             gradient: "from-blue-500/20 to-purple-500/20",
             border: "border-blue-500/30",
+            hoverBorder: "hover:border-blue-500/80",
         },
         {
             name: "Growth",
@@ -36,6 +37,7 @@ const Pricing = () => {
             bestFor: "Small businesses, growing startups, early revenue teams",
             gradient: "from-purple-500/20 to-pink-500/20",
             border: "border-purple-500/30",
+            hoverBorder: "hover:border-purple-500/80",
         },
         {
             name: "Pro",
@@ -52,6 +54,7 @@ const Pricing = () => {
             bestFor: "Startup founders building SaaS, AI tools, B2B platforms",
             gradient: "from-pink-500/20 to-orange-500/20",
             border: "border-pink-500/30",
+            hoverBorder: "hover:border-pink-500/80",
         },
         {
             name: "Enterprise",
@@ -68,6 +71,7 @@ const Pricing = () => {
             bestFor: "Large scale operations needing dedicated resources",
             gradient: "from-orange-500/20 to-red-500/20",
             border: "border-orange-500/30",
+            hoverBorder: "hover:border-orange-500/80",
         },
     ];
 
@@ -97,7 +101,7 @@ const Pricing = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className={`relative p-6 rounded-3xl border ${tier.border} bg-gradient-to-b ${tier.gradient} backdrop-blur-sm flex flex-col h-full group hover:scale-105 transition-transform duration-300`}
+                            className={`relative p-6 rounded-3xl border ${tier.border} ${tier.hoverBorder} bg-gradient-to-b ${tier.gradient} backdrop-blur-sm flex flex-col h-full group hover:scale-105 hover:shadow-[0_0_40px_hsl(var(--primary)/0.2)] transition-all duration-300`}
                         >
                             <div className="mb-8">
                                 <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
