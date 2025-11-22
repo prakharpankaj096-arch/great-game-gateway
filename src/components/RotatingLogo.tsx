@@ -69,13 +69,13 @@ const RotatingLogo = ({ variant = "default" }: RotatingLogoProps) => {
             strokeWidth="14"
             strokeLinecap="round"
             initial={{ pathLength: 0, pathOffset: 1 }}
-            animate={{
+            whileInView={{
               pathLength: 1,
               pathOffset: 0,
             }}
+            viewport={{ once: false }}
             transition={{
               duration: 3,
-              repeat: Infinity,
               ease: "linear",
             }}
           />
