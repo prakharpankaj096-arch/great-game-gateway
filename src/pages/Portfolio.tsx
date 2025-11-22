@@ -5,6 +5,125 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+
+const testimonials = [
+  {
+    name: "Aarav Mehta",
+    role: "Founder",
+    company: "LaunchWave",
+    quote:
+      "They turned our rough idea into a polished MVP in just 3 weeks. The process was transparent, collaborative, and extremely fast.",
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Product Lead",
+    company: "NorthSide Labs",
+    quote:
+      "Their product strategy work saved us months of trial and error. We finally have a clear roadmap that the whole team believes in.",
+  },
+  {
+    name: "Rohit Kumar",
+    role: "CTO",
+    company: "Finlytix",
+    quote:
+      "The AI features they built into our SaaS product have completely changed how our customers use the platform.",
+  },
+  {
+    name: "Emily Davis",
+    role: "CEO",
+    company: "BrightStack",
+    quote:
+      "Clean code, strong communication, and a real sense of ownership. It felt like having an in-house product team.",
+  },
+];
+
+const TestimonialsSection = () => {
+  // Duplicate testimonials so the marquee can loop seamlessly
+  const marqueeItems = [...testimonials, ...testimonials];
+
+  return (
+    <section className="py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 radial-glow pointer-events-none" />
+
+      <div className="container-custom mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-10 md:mb-14">
+          <p className="text-xs md:text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
+            Testimonials
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            What Our Clients Say
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Real stories from founders and teams we&apos;ve helped go from idea
+            to launch.
+          </p>
+        </div>
+
+        {/* Marquee wrapper */}
+        <div
+          className="
+            relative
+            overflow-hidden
+            py-4
+            before:pointer-events-none before:absolute before:inset-y-0 before:left-0
+            before:w-24 before:bg-gradient-to-r before:from-background before:to-transparent
+            after:pointer-events-none after:absolute after:inset-y-0 after:right-0
+            after:w-24 after:bg-gradient-to-l after:from-background after:to-transparent
+          "
+        >
+          <motion.div
+            className="flex gap-6 md:gap-8"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 30, // adjust speed (higher = slower)
+              ease: "linear",
+              repeat: Infinity,
+            }}
+          >
+            {marqueeItems.map((t, index) => (
+              <motion.div
+                key={`${t.name}-${index}`}
+                whileHover={{
+                  scale: 1.05,
+                  zIndex: 10,
+                }}
+                transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                className="
+                  group
+                  min-w-[260px]
+                  max-w-sm
+                  md:min-w-[320px]
+                  rounded-2xl
+                  bg-surface/70
+                  border
+                  border-border/50
+                  shadow-[0_0_40px_rgba(0,0,0,0.35)]
+                  backdrop-blur-xl
+                  p-5 md:p-6
+                  cursor-pointer
+                "
+              >
+                <p className="text-sm md:text-base text-foreground/90 leading-relaxed mb-4 md:mb-5">
+                  “{t.quote}”
+                </p>
+                <div className="flex flex-col">
+                  <span className="font-semibold text-sm md:text-base">
+                    {t.name}
+                  </span>
+                  <span className="text-xs md:text-sm text-muted-foreground">
+                    {t.role} · {t.company}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Portfolio = () => {
   const projects = [
@@ -61,16 +180,21 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
+
       <main className="flex-1 pt-24">
         {/* Hero */}
         <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-background">
-          <div className="container-custom mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="container-custom mx-auto text-center"
+          >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Work</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Real products, real results. See how we've helped startups and businesses bring their ideas to life.
             </p>
-          </div>
+          </motion.div>
         </section>
 
         {/* Portfolio Grid */}
@@ -78,65 +202,60 @@ const Portfolio = () => {
           <div className="container-custom mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {projects.map((project, index) => (
-                <Card key={index} className="card-hover border-border overflow-hidden">
-                  <CardHeader className="bg-muted/30">
-                    <div className="flex items-start justify-between">
-                      <div className="text-5xl mb-4">{project.image}</div>
-                      <Badge variant="secondary">{project.category}</Badge>
-                    </div>
-                    <CardTitle className="text-2xl">{project.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    <p className="text-muted-foreground mb-4">{project.description}</p>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-semibold mb-2 text-sm">Tech Stack:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech, i) => (
-                          <Badge key={i} variant="outline">{tech}</Badge>
-                        ))}
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="card-hover border-border overflow-hidden h-full">
+                    <CardHeader className="bg-muted/30">
+                      <div className="flex items-start justify-between">
+                        <div className="text-5xl mb-4">{project.image}</div>
+                        <Badge variant="secondary">{project.category}</Badge>
                       </div>
-                    </div>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-semibold mb-1 text-sm">Results:</h4>
-                      <p className="text-sm text-muted-foreground">{project.results}</p>
-                    </div>
-                    
-                    <Button variant="link" className="p-0">
-                      View Case Study <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
+                      <CardTitle className="text-2xl">{project.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <p className="text-muted-foreground mb-4">{project.description}</p>
+
+                      <div className="mb-4">
+                        <h4 className="font-semibold mb-2 text-sm">Tech Stack:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tech.map((tech, i) => (
+                            <Badge key={i} variant="outline">{tech}</Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <h4 className="font-semibold mb-1 text-sm">Results:</h4>
+                        <p className="text-sm text-muted-foreground">{project.results}</p>
+                      </div>
+
+                      <Button variant="link" className="p-0">
+                        View Case Study <ExternalLink className="ml-2 h-4 w-4" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="section-padding bg-muted/30">
-          <div className="container-custom mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((i) => (
-                <Card key={i} className="border-border">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 text-4xl">⭐⭐⭐⭐⭐</div>
-                    <p className="text-muted-foreground mb-4">
-                      "g8g transformed our idea into a fully functional product in just 3 weeks. The team was professional, responsive, and delivered beyond our expectations."
-                    </p>
-                    <div className="font-semibold">Client Name</div>
-                    <div className="text-sm text-muted-foreground">CEO, Company</div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <TestimonialsSection />
 
         {/* CTA */}
         <section className="section-padding bg-primary text-primary-foreground">
-          <div className="container-custom mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="container-custom mx-auto text-center"
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to See Your Project Here?
             </h2>
@@ -146,7 +265,7 @@ const Portfolio = () => {
             <Button size="lg" variant="secondary" asChild>
               <Link to="/contact">Start Your Project</Link>
             </Button>
-          </div>
+          </motion.div>
         </section>
       </main>
 
