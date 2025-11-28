@@ -57,8 +57,8 @@ const Navigation = () => {
                 key={link.path}
                 to={link.path}
                 className={`text-sm font-medium transition-all duration-200 ${isActive(link.path)
-                    ? "text-white"
-                    : "text-white/70 hover:text-white"
+                  ? "text-white"
+                  : "text-white/70 hover:text-white"
                   }`}
               >
                 {link.label}

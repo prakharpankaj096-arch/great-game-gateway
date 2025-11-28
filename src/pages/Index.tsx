@@ -133,7 +133,7 @@ const Index = () => {
       <BrandMarquee />
 
       {/* What We Deliver */}
-      <section className="py-24 md:py-32 relative">
+      <section className="pt-24 pb-12 md:pt-32 md:pb-16 relative">
         <div className="container-custom mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -251,10 +251,10 @@ const Index = () => {
       </section>
 
       {/* Spacer */}
-      <div className="h-24 md:h-32" />
+
 
       {/* What We Build */}
-      <section className="py-24 md:py-32 relative mt-24">
+      <section className="pt-12 pb-24 md:pt-16 md:pb-32 relative">
         <div className="absolute inset-0 radial-glow" />
         <div className="container-custom mx-auto relative z-10">
           <motion.div
