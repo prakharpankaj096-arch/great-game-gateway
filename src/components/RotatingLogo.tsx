@@ -89,7 +89,7 @@ const RotatingLogo = ({ variant = "default" }: RotatingLogoProps) => {
 
 
         </motion.svg>
-      </motion.div>
+      </motion.div >
 
 
     </div >
