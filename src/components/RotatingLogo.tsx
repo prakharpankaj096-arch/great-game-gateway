@@ -27,19 +27,19 @@ const RotatingLogo = ({ variant = "default" }: RotatingLogoProps) => {
           background: "linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 50%, #16213e 100%)",
           border: "5px solid rgba(45, 71, 217, 0.4)",
           boxShadow: `
-            0 0 40px rgba(100, 120, 255, 0.6),
-            0 0 80px rgba(100, 120, 255, 0.4),
-            0 20px 40px rgba(0, 0, 0, 0.7),
-            inset 0 0 60px rgba(100, 120, 255, 0.1)
+            0 0 30px rgba(100, 120, 255, 0.4),
+            0 0 60px rgba(100, 120, 255, 0.2),
+            0 20px 30px rgba(0, 0, 0, 0.7),
+            inset 0 0 40px rgba(100, 120, 255, 0.05)
           `,
         }}
         whileHover={{
           scale: 1.05,
           boxShadow: `
-            0 0 50px rgba(100, 120, 255, 0.8),
-            0 0 100px rgba(100, 120, 255, 0.5),
-            0 20px 50px rgba(0, 0, 0, 0.8),
-            inset 0 0 80px rgba(100, 120, 255, 0.15)
+            0 0 40px rgba(100, 120, 255, 0.6),
+            0 0 80px rgba(100, 120, 255, 0.3),
+            0 20px 40px rgba(0, 0, 0, 0.8),
+            inset 0 0 60px rgba(100, 120, 255, 0.1)
           `,
         }}
         transition={{ duration: 0.3 }}
