@@ -33,9 +33,9 @@ const Index = () => {
       title: "MVP Development",
       description: "Build and launch your minimum viable product in weeks, not months.",
       details: [
-        "Launch Faster – get to market in weeks, not months",
-        "Validate Your Idea With Real Users before scaling",
-        "Attract Investors & Early Adopters with a working product",
+        "Start small. Win big.",
+        "Build only what matters.",
+        "Your idea, delivered fast.",
       ],
     },
     {
@@ -43,9 +43,9 @@ const Index = () => {
       title: "Product Strategy",
       description: "Transform your vision into a clear, actionable product roadmap.",
       details: [
-        "Aligns Product With Business Goals and KPIs",
-        "Prioritizes What Actually Matters for your users",
-        "Enables Faster, Smarter Decisions with data-driven insights",
+        "Clarity that moves you forward.",
+        "Strategy built on insight.",
+        "Know what to build next.",
       ],
     },
     {
@@ -54,9 +54,9 @@ const Index = () => {
       description:
         "Leverage cutting-edge AI and SaaS solutions to build intelligent, scalable products.",
       details: [
-        "Full-Stack SaaS Product Development from idea to launch",
-        "AI-Powered Automation to reduce manual work",
-        "Custom AI Models tailored to your business needs",
+        "Automation that empowers growth.",
+        "Intelligence built in.",
+        "AI that works instantly.",
       ],
     },
   ];
