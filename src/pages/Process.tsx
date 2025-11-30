@@ -8,18 +8,8 @@ const Process = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
-      <main className="flex-1 pt-24">
-        {/* Hero */}
-        <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-background">
-          <div className="container-custom mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">How We Work</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A proven 3-step process that takes you from idea to launched product in just 3 weeks
-            </p>
-          </div>
-        </section>
 
+      <main className="flex-1 pt-24">
         {/* Scroll-Based Process Animation */}
         <ProcessSection />
 
@@ -31,33 +21,51 @@ const Process = () => {
             </h2>
             <div className="max-w-4xl mx-auto">
               <div className="relative">
-                <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-1/2" />
-                
-                <div className="space-y-8">
-                  <div className="relative flex items-center">
-                    <div className="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2" />
-                    <div className="md:block absolute left-0 w-4 h-4 bg-primary rounded-full md:hidden" />
-                    <div className="ml-8 md:ml-0 md:w-1/2 md:pr-12">
-                      <div className="font-semibold">Week 1</div>
-                      <div className="text-muted-foreground">Planning & Design</div>
+                <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-border md:-translate-x-1/2" />
+
+                <div className="space-y-16">
+                  <div className="relative flex items-start">
+                    <div className="hidden md:block absolute left-1/2 w-6 h-6 bg-primary rounded-full -translate-x-1/2" />
+                    <div className="md:block absolute left-0 w-6 h-6 bg-primary rounded-full md:hidden" />
+                    <div className="ml-12 md:ml-0 md:w-1/2 md:pr-12">
+                      <div className="font-bold text-xl mb-2">Week 1</div>
+                      <div className="text-primary font-semibold text-lg mb-3">Planning & Design</div>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li>• Discovery & requirements gathering</li>
+                        <li>• User research & persona development</li>
+                        <li>• Wireframing & UI/UX design</li>
+                        <li>• Technical architecture planning</li>
+                      </ul>
                     </div>
                   </div>
-                  
-                  <div className="relative flex items-center">
-                    <div className="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2" />
-                    <div className="md:block absolute left-0 w-4 h-4 bg-primary rounded-full md:hidden" />
-                    <div className="ml-8 md:ml-0 md:w-1/2 md:pl-12 md:ml-auto">
-                      <div className="font-semibold">Week 2</div>
-                      <div className="text-muted-foreground">Development & Testing</div>
+
+                  <div className="relative flex items-start">
+                    <div className="hidden md:block absolute left-1/2 w-6 h-6 bg-primary rounded-full -translate-x-1/2" />
+                    <div className="md:block absolute left-0 w-6 h-6 bg-primary rounded-full md:hidden" />
+                    <div className="ml-12 md:ml-0 md:w-1/2 md:pl-12 md:ml-auto">
+                      <div className="font-bold text-xl mb-2">Week 2</div>
+                      <div className="text-primary font-semibold text-lg mb-3">Development & Testing</div>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li>• Core feature development</li>
+                        <li>• Database & API integration</li>
+                        <li>• Authentication & security setup</li>
+                        <li>• Quality assurance & bug fixes</li>
+                      </ul>
                     </div>
                   </div>
-                  
-                  <div className="relative flex items-center">
-                    <div className="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2" />
-                    <div className="md:block absolute left-0 w-4 h-4 bg-primary rounded-full md:hidden" />
-                    <div className="ml-8 md:ml-0 md:w-1/2 md:pr-12">
-                      <div className="font-semibold">Week 3</div>
-                      <div className="text-muted-foreground">Final Polish & Launch</div>
+
+                  <div className="relative flex items-start">
+                    <div className="hidden md:block absolute left-1/2 w-6 h-6 bg-primary rounded-full -translate-x-1/2" />
+                    <div className="md:block absolute left-0 w-6 h-6 bg-primary rounded-full md:hidden" />
+                    <div className="ml-12 md:ml-0 md:w-1/2 md:pr-12">
+                      <div className="font-bold text-xl mb-2">Week 3</div>
+                      <div className="text-primary font-semibold text-lg mb-3">Final Polish & Launch</div>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li>• Performance optimization</li>
+                        <li>• Final UI/UX refinements</li>
+                        <li>• Deployment & monitoring setup</li>
+                        <li>• Launch & post-launch support</li>
+                      </ul>
                     </div>
                   </div>
                 </div>

@@ -303,13 +303,13 @@ const Index = () => {
                       </ul>
                     </div>
                     <Button
-                      variant="outline"
-                      className="w-full border-primary/40 hover:bg-primary/20 group"
+                      variant="link"
+                      className="w-full mt-auto justify-center text-white hover:text-primary hover:no-underline p-0 mb-2"
                       asChild
                     >
-                      <Link to="/services">
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <Link to="/services" className="flex items-center gap-2 group">
+                        <span className="group-hover:underline underline-offset-4">Learn More</span>
+                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
                   </div>

@@ -137,7 +137,7 @@ const Footer = () => {
         {/* Large Logo */}
         <div className="text-center mb-20">
           <h1 className="text-[120px] md:text-[180px] font-bold leading-none tracking-tighter opacity-20 bg-clip-text text-transparent bg-gradient-to-b from-white to-transparent select-none">
-            g8g
+            g8g<span className="text-[0.2em] align-super">®</span>
           </h1>
         </div>
 
