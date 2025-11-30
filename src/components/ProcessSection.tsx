@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Lightbulb, Code2, Rocket, TestTube } from "lucide-react";
