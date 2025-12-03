@@ -14,6 +14,8 @@ import {
   Lightbulb,
   Target,
   ArrowRight,
+  Sparkles,
+  Star,
 } from "lucide-react";
 
 import { motion } from "framer-motion";
@@ -337,25 +339,167 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-glow/20" />
-        <div className="absolute inset-0 radial-glow" />
+        {/* Animated Background Orbs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.6 }}
-          className="container-custom mx-auto text-center relative z-10"
+          className="absolute top-0 left-1/4 w-72 h-72 bg-gradient-to-br from-primary/30 to-accent-purple/20 rounded-full blur-3xl"
+          animate={{ 
+            y: [-20, 20, -20],
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-tl from-accent-blue/20 to-primary/30 rounded-full blur-3xl"
+          animate={{ 
+            y: [20, -20, 20],
+            scale: [1.1, 1, 1.1],
+            opacity: [0.4, 0.6, 0.4]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-primary/10 via-accent-purple/10 to-accent-blue/10 rounded-full blur-3xl"
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.05, 1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+
+        {/* Floating Decorative Icons */}
+        <motion.div
+          className="absolute top-16 right-[15%] hidden md:block"
+          animate={{ 
+            y: [-10, 10, -10],
+            rotate: [0, 10, 0]
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Build Your MVP?
-          </h2>
-          <p className="text-xl mb-8 text-muted-foreground">
-            Let's turn your idea into reality in just 3 weeks
-          </p>
-          <Button size="lg" asChild className="neon-border">
-            <Link to="/contact">Start Your Project</Link>
-          </Button>
+          <Rocket className="h-8 w-8 text-primary/40" />
         </motion.div>
+        <motion.div
+          className="absolute bottom-20 left-[10%] hidden md:block"
+          animate={{ 
+            y: [10, -10, 10],
+            rotate: [0, -10, 0]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Sparkles className="h-6 w-6 text-accent-purple/40" />
+        </motion.div>
+        <motion.div
+          className="absolute top-1/3 left-[8%] hidden md:block"
+          animate={{ 
+            y: [-5, 15, -5],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Star className="h-5 w-5 text-accent-blue/30" />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-1/3 right-[8%] hidden md:block"
+          animate={{ 
+            y: [5, -15, 5],
+            rotate: [0, 180, 360]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Zap className="h-6 w-6 text-primary/30" />
+        </motion.div>
+
+        <div className="container-custom mx-auto relative z-10">
+          {/* Glassmorphism Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative bg-card/40 backdrop-blur-2xl border border-border-glow/30 rounded-3xl p-10 md:p-16 text-center overflow-hidden"
+          >
+            {/* Animated Border Glow */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 via-accent-purple/20 to-primary/20 opacity-50 blur-xl -z-10" />
+            <motion.div 
+              className="absolute inset-0 rounded-3xl"
+              style={{
+                background: "linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent)",
+                backgroundSize: "200% 100%",
+              }}
+              animate={{
+                backgroundPosition: ["200% 0", "-200% 0"],
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6"
+            >
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Let's Create Something Amazing</span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-primary-glow bg-clip-text text-transparent"
+            >
+              Ready to Build Your MVP?
+            </motion.h2>
+
+            {/* Subtext */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="text-xl md:text-2xl mb-10 text-muted-foreground max-w-2xl mx-auto"
+            >
+              Let's turn your idea into reality in just 3 weeks
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  size="lg"
+                  asChild
+                  className="bg-gradient-to-r from-primary via-accent-purple to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary-foreground font-semibold px-10 py-7 text-lg rounded-full shadow-[0_0_40px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_60px_hsl(var(--primary)/0.7)] transition-all duration-500 group"
+                >
+                  <Link to="/contact" className="flex items-center gap-2">
+                    <span>Start Your Project</span>
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </Button>
+              </motion.div>
+              <Button
+                size="lg"
+                variant="ghost"
+                asChild
+                className="text-muted-foreground hover:text-foreground hover:bg-surface/30 px-8 py-7 text-lg rounded-full transition-all"
+              >
+                <Link to="/contact">or Book a Free Call</Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       <Footer />
