@@ -13,7 +13,8 @@ import {
   ArrowRight,
   Code,
   Lightbulb,
-  Sparkles,
+  Target,
+  ArrowRight,
 } from "lucide-react";
 
 import { motion } from "framer-motion";
@@ -373,53 +374,25 @@ const Index = () => {
       <div className="h-24 md:h-32" />
 
       {/* CTA Section */}
-      <section className="py-20 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent-blue/10 to-accent-purple/20" />
-        <div className="absolute inset-0 radial-glow opacity-15" />
+      <section className="py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-glow/20" />
+        <div className="absolute inset-0 radial-glow" />
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
           className="container-custom mx-auto text-center relative z-10"
         >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-3xl md:text-5xl font-bold mb-4"
-          >
-            Ready to Build Your{" "}
-            <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
-              MVP?
-            </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-xl mb-8 text-muted-foreground"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Build Your MVP?
+          </h2>
+          <p className="text-xl mb-8 text-muted-foreground">
             Let's turn your idea into reality in just 3 weeks
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button 
-              size="lg" 
-              asChild 
-              className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(99,102,241,0.3)] hover:shadow-[0_0_60px_rgba(99,102,241,0.5)] transition-all duration-300"
-            >
-              <Link to="/contact">Start Your Project</Link>
-            </Button>
-          </motion.div>
+          </p>
+          <Button size="lg" asChild className="neon-border">
+            <Link to="/contact">Start Your Project</Link>
+          </Button>
         </motion.div>
       </section>
 
