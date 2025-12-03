@@ -8,7 +8,7 @@ interface FlipCardProps {
   delay?: number;
 }
 
-const FlipCard = ({ frontContent, backContent, className = "", delay = 0 }: FlipCardProps) => {
+const FlipCard = ({ frontContent, backContent, className = "min-h-[320px]", delay = 0 }: FlipCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -16,8 +16,8 @@ const FlipCard = ({ frontContent, backContent, className = "", delay = 0 }: Flip
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      className={`relative h-full min-h-[320px] pb-8 ${className}`}
+      transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      className={`relative h-full pb-8 ${className}`}
       style={{ perspective: "1000px" }}
       onHoverStart={() => setIsFlipped(true)}
       onHoverEnd={() => setIsFlipped(false)}
@@ -25,7 +25,7 @@ const FlipCard = ({ frontContent, backContent, className = "", delay = 0 }: Flip
       <motion.div
         className="relative w-full h-full"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+        transition={{ duration: 0.7, type: "spring", stiffness: 120, damping: 20 }}
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Front Face */}

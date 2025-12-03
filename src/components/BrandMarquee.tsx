@@ -32,7 +32,7 @@ const BrandMarquee = () => {
           {[...brands, ...brands, ...brands].map((brand, index) => (
             <div
               key={index}
-              className="flex items-center justify-center min-w-[140px] h-20 px-6 rounded-xl bg-card/50 border border-primary/10 backdrop-blur-sm grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all"
+              className="flex items-center justify-center min-w-[140px] h-20 px-6 rounded-xl bg-card/50 border border-primary/10 backdrop-blur-sm grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 ease-out"
             >
               <img
                 src={brand.logo}

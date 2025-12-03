@@ -1,171 +1,298 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Code, Lightbulb, Sparkles, Wrench, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import FeatureSection from "@/components/FeatureSection";
+import ServiceTierSection from "@/components/ServiceTierSection";
+import {
+  Sparkles, Zap, Target, Shield,
+  Code2, Database, Layout, Smartphone,
+  Bot, Workflow, BarChart3, Lock,
+  Rocket, Layers, Cpu, Globe,
+  Users, CreditCard, FileText, Map,
+  TrendingUp, CheckCircle, Settings,
+  Bell, Clock, BookOpen, Gauge,
+  AlertCircle, Plus, ArrowRight
+} from "lucide-react";
 
 const Services = () => {
-  const services = [
-    {
-      icon: <Code className="h-12 w-12 text-primary" />,
-      title: "MVP Development",
-      description: "We build your minimum viable product end-to-end, from concept to launch. Get to market in 3 weeks with a fully functional product that validates your idea and attracts users.",
-      features: [
-        "Full-stack development",
-        "User authentication & authorization",
-        "Database design & setup",
-        "Responsive UI/UX design",
-        "Deployment & hosting",
-        "Post-launch support"
-      ]
-    },
-    {
-      icon: <Lightbulb className="h-12 w-12 text-primary" />,
-      title: "Product Strategy & Roadmapping",
-      description: "Transform your vision into a clear, actionable roadmap. We help you define features, prioritize development, and create a strategy that aligns with your business goals.",
-      features: [
-        "Market research & analysis",
-        "Feature prioritization",
-        "User story mapping",
-        "Technical architecture planning",
-        "Timeline & milestone planning",
-        "Risk assessment & mitigation"
-      ]
-    },
-    {
-      icon: <Sparkles className="h-12 w-12 text-primary" />,
-      title: "AI & SaaS Development",
-      description: "Leverage the power of artificial intelligence and build scalable SaaS products. From chatbots to predictive analytics, we integrate cutting-edge AI into your platform.",
-      features: [
-        "AI model integration",
-        "Natural language processing",
-        "Machine learning pipelines",
-        "Multi-tenant SaaS architecture",
-        "API development & integration",
-        "Real-time data processing"
-      ]
-    },
-    {
-      icon: <Wrench className="h-12 w-12 text-primary" />,
-      title: "Custom Development",
-      description: "Need something unique? We build custom solutions tailored to your specific requirements. Whether it's an internal tool, automation, or complex integration, we've got you covered.",
-      features: [
-        "Custom web applications",
-        "API development & integration",
-        "Workflow automation",
-        "Third-party integrations",
-        "Legacy system modernization",
-        "Performance optimization"
-      ]
-    }
-  ];
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/30">
       <Navigation />
 
       <main className="flex-1 pt-24">
-        {/* Hero */}
-        <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-background">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="container-custom mx-auto text-center"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              End-to-end product development services designed to turn your ideas into successful products
-            </p>
-          </motion.div>
-        </section>
-
-        {/* Services Grid */}
-        <section className="section-padding">
-          <div className="container-custom mx-auto">
-            <div className="space-y-12">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card className="border-border overflow-hidden h-full">
-                    <CardHeader className="bg-muted/30">
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-start space-x-4">
-                          <div className="p-3 bg-primary/10 rounded-lg">
-                            {service.icon}
-                          </div>
-                          <div>
-                            <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
-                            <p className="text-muted-foreground">{service.description}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <h4 className="font-semibold mb-4">What's Included:</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                        {service.features.map((feature, i) => (
-                          <div key={i} className="flex items-center space-x-2">
-                            <ArrowRight className="h-4 w-4 text-primary flex-shrink-0" />
-                            <span className="text-sm text-muted-foreground">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <Button asChild>
-                        <Link to="/contact">Enquire Now</Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+        {/* Hero Section */}
+        <section className="relative py-16 px-4 bg-gradient-to-b from-background via-background-light to-background overflow-hidden">
+          <div className="absolute inset-0 radial-glow opacity-20" />
+          <div className="container-custom mx-auto relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16 md:mb-20"
+            >
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-xs md:text-sm tracking-[0.4em] text-muted-foreground mb-6 uppercase font-medium"
+              >
+                Productized Services
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              >
+                The new standard for{" "}
+                <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+                  productized services
+                </span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              >
+                With its meticulous design, breathtaking speed and opinionated yet flexible workflows, our sprint model unlocks your team's full potential. It is the tool of choice for high-performance teams to build products better.
+              </motion.p>
+            </motion.div>
           </div>
         </section>
 
-        {/* Process Preview */}
-        <section className="section-padding bg-muted/30">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="container-custom mx-auto text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Process</h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              A streamlined approach to building great products
-            </p>
-            <Button size="lg" asChild>
-              <Link to="/process">Learn How We Work</Link>
-            </Button>
-          </motion.div>
-        </section>
+        {/* CLARITY48™ - 48-Hour Product Direction Sprint */}
+        <ServiceTierSection
+          title="CLARITY48™ — 48-Hour Product Direction Sprint"
+          description="Before writing a single line of code, we ensure you're building the right thing. Our 48-hour sprint delivers a complete blueprint for your product with clear direction, user flows, and an actionable roadmap."
+          gradient="from-green-400 to-emerald-600"
+          tiers={[
+            {
+              name: "CORE",
+              features: [
+                "Lean PRD",
+                "1-2 user flows",
+                "Basic UI wireframe",
+                "7-day build roadmap"
+              ]
+            },
+            {
+              name: "STANDARD",
+              features: [
+                "Full PRD (v1-ready)",
+                "Full user journeys",
+                "Feature prioritization",
+                "UI blueprint",
+                "2-week execution plan"
+              ],
+              highlighted: true
+            },
+            {
+              name: "SCALE",
+              features: [
+                "Everything in STANDARD",
+                "Competitive teardown",
+                "Validation plan",
+                "Market angle framing",
+                "\"Beyond v1\" roadmap"
+              ]
+            }
+          ]}
+        />
 
-        {/* CTA */}
-        <section className="section-padding bg-primary text-primary-foreground">
+        {/* AUTO-OPS SPRINT™ - 7-Day Automation Sprint */}
+        <ServiceTierSection
+          title="AUTO-OPS SPRINT™ — 7-Day Automation Sprint"
+          description="Scale your operations without hiring more people. We build custom automation workflows to handle repetitive tasks, connect your systems, and create powerful dashboards that give you full visibility into your operations."
+          gradient="from-purple-400 to-pink-600"
+          tiers={[
+            {
+              name: "CORE",
+              features: [
+                "Ops audit",
+                "2 workflows",
+                "Lite ops hub (Airtable/Notion)",
+                "Basic reporting automation"
+              ]
+            },
+            {
+              name: "STANDARD",
+              features: [
+                "4 workflows",
+                "Full ops hub",
+                "Reporting engine",
+                "Error handling",
+                "SOP documentation"
+              ],
+              highlighted: true
+            },
+            {
+              name: "SCALE",
+              features: [
+                "5-7 workflows",
+                "Multi-system integrations",
+                "Team dashboards",
+                "Alerts + monitoring",
+                "Full documentation",
+                "1-week post-sprint support"
+              ]
+            }
+          ]}
+        />
+
+        {/* MVP21™ - 21-Day MVP Build Sprint */}
+        <ServiceTierSection
+          title="MVP21™ — 21-Day MVP Build Sprint"
+          description="Launch your MVP in just 21 days. We focus on core value, speed to market, and scalable code quality. From concept to launch, we deliver a production-ready product that your users will love."
+          gradient="from-blue-400 to-indigo-600"
+          tiers={[
+            {
+              name: "CORE",
+              features: [
+                "Basic PRD",
+                "Core UI",
+                "No-code MVP",
+                "Launch checklist",
+                "1 iteration round"
+              ]
+            },
+            {
+              name: "STANDARD",
+              features: [
+                "Full PRD",
+                "Full UI",
+                "Complex workflows",
+                "Automation blueprint",
+                "Reporting dashboard",
+                "Launch support"
+              ],
+              highlighted: true
+            },
+            {
+              name: "SCALE",
+              features: [
+                "Multi-user system",
+                "Internal tools",
+                "Advanced automation",
+                "Full dashboard suite",
+                "2 iteration cycles",
+                "Full documentation + training"
+              ]
+            }
+          ]}
+        />
+
+        {/* ADD-ONS Section */}
+        <FeatureSection
+          title="Add-ons"
+          description="Ready to extend your sprint? Add powerful upgrades to enhance your product with additional features, workflows, and support options tailored to your needs."
+          gradient="from-orange-400 to-red-600"
+          align="center"
+          features={[
+            {
+              title: "Extra user flow",
+              description: "Additional user flow documentation and wireframing for your product.",
+              icon: Workflow
+            },
+            {
+              title: "Extra feature spec",
+              description: "Detailed specification for additional features beyond the core sprint scope.",
+              icon: FileText
+            },
+            {
+              title: "Competitive teardown",
+              description: "In-depth analysis of competitor products and market positioning.",
+              icon: TrendingUp
+            },
+            {
+              title: "Extra automation workflow",
+              description: "Additional custom automation workflow to streamline your operations.",
+              icon: Bot
+            },
+            {
+              title: "Automated reporting dashboard",
+              description: "Custom dashboard with automated reports and real-time metrics.",
+              icon: BarChart3
+            },
+            {
+              title: "Notification/alert setup",
+              description: "Configure alerts and notifications for your workflows and systems.",
+              icon: Bell
+            },
+            {
+              title: "Extra iteration cycle",
+              description: "Additional round of iterations and refinements for your product.",
+              icon: ArrowRight
+            },
+            {
+              title: "1-week support extension",
+              description: "Extended support period to help you transition smoothly after delivery.",
+              icon: Clock
+            },
+            {
+              title: "Priority delivery upgrade",
+              description: "Expedited delivery with priority scheduling and faster turnaround.",
+              icon: Zap
+            },
+            {
+              title: "Team training",
+              description: "Comprehensive training sessions for automation or product management.",
+              icon: Users
+            }
+          ]}
+        />
+
+        {/* CTA Section */}
+        <section className="py-20 md:py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background-light to-background" />
+          <div className="absolute inset-0 radial-glow opacity-15" />
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="container-custom mx-auto text-center"
+            className="container-custom mx-auto text-center relative z-10 px-4"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Let's Build Your Product
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Book a free consultation to discuss your project
-            </p>
-            <Button size="lg" variant="secondary" asChild>
-              <Link to="/contact">Get Started</Link>
-            </Button>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-4xl md:text-6xl font-bold mb-8"
+            >
+              Ready to ship?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
+            >
+              Stop planning and start building. Book a consultation to discuss your project.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                size="lg"
+                className="text-lg px-12 py-8 rounded-full bg-gradient-to-r from-primary via-accent-blue to-accent-purple hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(99,102,241,0.3)] hover:shadow-[0_0_60px_rgba(99,102,241,0.5)] transition-all"
+                asChild
+              >
+                <Link to="/contact">Start Your Sprint</Link>
+              </Button>
+            </motion.div>
           </motion.div>
         </section>
       </main>
