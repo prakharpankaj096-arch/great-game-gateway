@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,13 +21,39 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            message: formData.message,
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -33,6 +61,24 @@ const Contact = () => {
       ...prev,
       [e.target.name]: e.target.value
     }));
+  };
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  const scrollToSchedule = () => {
+    const element = document.getElementById('schedule-meeting');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -128,13 +174,23 @@ const Contact = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Button 
-                      type="submit" 
-                      size="lg" 
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={isSubmitting}
                       className="w-full bg-gradient-to-r from-primary via-accent-purple to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary-foreground font-semibold py-7 text-lg rounded-full shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.7)] transition-all duration-500 group"
                     >
-                      <span>Send Message</span>
-                      <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      {isSubmitting ? (
+                        <>
+                          <span>Sending...</span>
+                          <Loader2 className="ml-2 h-5 w-5 animate-spin" />
+                        </>
+                      ) : (
+                        <>
+                          <span>Send Message</span>
+                          <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                        </>
+                      )}
                     </Button>
                   </motion.div>
                 </form>
@@ -194,10 +250,8 @@ const Contact = () => {
                         <p className="text-muted-foreground mb-3">
                           Book a free 30-minute consultation
                         </p>
-                        <Button variant="outline" asChild>
-                          <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
-                            Book on Calendly
-                          </a>
+                        <Button variant="outline" onClick={scrollToSchedule}>
+                          Book on Calendly
                         </Button>
                       </div>
                     </div>
@@ -215,6 +269,18 @@ const Contact = () => {
                 </Card>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* Calendly Section */}
+        <section id="schedule-meeting" className="section-padding bg-muted/30">
+          <div className="container-custom mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">Schedule a Meeting</h2>
+            <div
+              className="calendly-inline-widget w-full"
+              data-url="https://calendly.com/prakharpankaj096"
+              style={{ minWidth: '320px', height: '700px' }}
+            />
           </div>
         </section>
 
