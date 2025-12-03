@@ -2,13 +2,13 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import ProcessSection from "@/components/ProcessSection";
+import ProcessSection from "../components/ProcessSection";
 
 const Process = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
+
       <main className="flex-1 pt-24">
         {/* Hero */}
         <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-background">
@@ -32,7 +32,7 @@ const Process = () => {
             <div className="max-w-4xl mx-auto">
               <div className="relative">
                 <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-1/2" />
-                
+
                 <div className="space-y-8">
                   <div className="relative flex items-center">
                     <div className="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2" />
@@ -42,7 +42,7 @@ const Process = () => {
                       <div className="text-muted-foreground">Planning & Design</div>
                     </div>
                   </div>
-                  
+
                   <div className="relative flex items-center">
                     <div className="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2" />
                     <div className="md:block absolute left-0 w-4 h-4 bg-primary rounded-full md:hidden" />
@@ -51,7 +51,7 @@ const Process = () => {
                       <div className="text-muted-foreground">Development & Testing</div>
                     </div>
                   </div>
-                  
+
                   <div className="relative flex items-center">
                     <div className="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2" />
                     <div className="md:block absolute left-0 w-4 h-4 bg-primary rounded-full md:hidden" />

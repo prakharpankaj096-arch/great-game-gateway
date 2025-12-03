@@ -1,173 +1,161 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+"use client";
+
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+
 type Step = {
-  label: string;
-  heading: string;
-  description: string;
-  duration: string;
+    label: string;
+    heading: string;
+    description: string;
+    duration: string;
+    color: string;
 };
-const STEPS: Step[] = [{
-  label: "Plan",
-  heading: "Plan – Understand & Architect",
-  description: "We dive deep into your vision, define the problem, map user journeys, and prioritize features for an MVP that actually moves the needle.",
-  duration: "Days 1–5"
-}, {
-  label: "Build",
-  heading: "Build – Design, Develop, Iterate",
-  description: "Our team designs your experience, builds the product using a modern stack, and ships in tight, feedback-driven sprints.",
-  duration: "Days 6–15"
-}, {
-  label: "Launch",
-  heading: "Launch – Ship, Measure, Improve",
-  description: "We deploy, monitor, and optimize your product, setting you up with analytics, feedback loops, and a roadmap for the next release.",
-  duration: "Days 16–21"
-}];
+
+const STEPS: Step[] = [
+    {
+        label: "Plan",
+        heading: "Plan – Understand & Architect",
+        description:
+            "We dive deep into your vision, define the problem, map user journeys, and prioritize features for an MVP that actually moves the needle.",
+        duration: "Days 1–5",
+        color: "from-blue-500 to-blue-700",
+    },
+    {
+        label: "Build",
+        heading: "Build – Design, Develop, Iterate",
+        description:
+            "Our team designs your experience, builds the product using a modern stack, and ships in tight, feedback-driven sprints.",
+        duration: "Days 6–15",
+        color: "from-purple-500 to-purple-700",
+    },
+    {
+        label: "Launch",
+        heading: "Launch – Ship, Measure, Improve",
+        description:
+            "We deploy, monitor, and optimize your product, setting you up with analytics, feedback loops, and a roadmap for the next release.",
+        duration: "Days 16–21",
+        color: "from-pink-500 to-pink-700",
+    },
+];
+
 const AUTO_STEP_INTERVAL = 4000; // 4 seconds
 
 const ProcessSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [scrollY, setScrollY] = useState(0);
+    const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // Auto-cycle through steps
-  useEffect(() => {
-    const id = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % STEPS.length);
-    }, AUTO_STEP_INTERVAL);
-    return () => clearInterval(id);
-  }, []);
-  const activeStep = STEPS[activeIndex];
-  return <section id="process" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 radial-glow pointer-events-none" />
+    // Track scroll position
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
 
-      <motion.div initial={{
-      opacity: 0,
-      y: 40
-    }} whileInView={{
-      opacity: 1,
-      y: 0
-    }} viewport={{
-      once: true,
-      margin: "-100px"
-    }} transition={{
-      duration: 0.6
-    }} className="container-custom mx-auto relative z-10">
-        {/* Section header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs md:text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
-            HOW WE    
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
-            How We Build Products
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            A simple, transparent 3-step process that takes you from idea to
-            launched product in just 3 weeks.
-          </p>
-        </div>
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-        {/* Main card */}
-        <div className="mx-auto max-w-4xl rounded-3xl bg-surface/60 border border-border/40 backdrop-blur-xl p-6 md:p-10 shadow-[0_0_60px_rgba(0,0,0,0.35)]">
-          {/* Top: animated step labels (Plan / Build / Launch) */}
-          <div className="flex flex-col items-center gap-6 md:gap-8">
-            {/* Slider / "pill" with animated label */}
-            <div className="relative h-10 md:h-12 px-8 md:px-10 rounded-full bg-background/60 border border-border/40 flex items-center overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.span key={activeStep.label} initial={{
-                y: 16,
-                opacity: 0
-              }} animate={{
-                y: 0,
-                opacity: 1
-              }} exit={{
-                y: -16,
-                opacity: 0
-              }} transition={{
-                duration: 0.35,
-                ease: "easeOut"
-              }} className="text-sm md:text-base font-medium tracking-[0.25em] uppercase text-primary">
-                  {activeStep.label}
-                </motion.span>
-              </AnimatePresence>
+    // Auto-cycle through steps
+    useEffect(() => {
+        const id = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % STEPS.length);
+        }, AUTO_STEP_INTERVAL);
+        return () => clearInterval(id);
+    }, []);
+
+    const activeStep = STEPS[activeIndex];
+
+    return (
+        <section
+            ref={containerRef}
+            id="process"
+            className="relative py-24 md:py-32 overflow-hidden bg-[#0a0e27]"
+        >
+            <div className="container mx-auto relative z-10 px-6">
+                {/* Section header */}
+                <div className="text-center mb-12 md:mb-16">
+                    <p className="text-xs md:text-sm tracking-[0.3em] text-gray-400 uppercase mb-4">
+                        How We Work
+                    </p>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white">
+                        How We Build Products
+                    </h2>
+                    <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
+                        A simple, transparent 3-step process that takes you from idea to
+                        launched product in just 3 weeks.
+                    </p>
+                </div>
+
+                {/* PARALLAX CARDS CONTAINER */}
+                <div className="relative h-96 md:h-[500px] overflow-visible rounded-3xl mb-12">
+                    {STEPS.map((step, index) => {
+                        const speed = 0.2 + index * 0.3; // Different speeds: 0.2, 0.5, 0.8
+                        const isActive = index === activeIndex;
+
+                        return (
+                            <motion.div
+                                key={step.label}
+                                className={`absolute h-48 w-72 md:h-64 md:w-96 bg-gradient-to-r ${step.color} rounded-2xl shadow-2xl flex flex-col items-center justify-center text-white text-center p-6 cursor-pointer transition-all duration-300`}
+                                style={{
+                                    transform: `translateY(${scrollY * speed}px)`,
+                                    zIndex: isActive ? 30 : 10 + index,
+                                    left: `${15 + index * 20}%`,
+                                    top: `${10 + index * 15}%`,
+                                    opacity: isActive ? 1 : 0.7,
+                                    scale: isActive ? 1.05 : 1,
+                                }}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: isActive ? 1 : 0.7, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                onClick={() => setActiveIndex(index)}
+                                whileHover={{ scale: 1.05, opacity: 1 }}
+                            >
+                                <h3 className="text-2xl md:text-3xl font-bold mb-3">
+                                    {step.label}
+                                </h3>
+                                <p className="text-sm md:text-base opacity-90">
+                                    {step.duration}
+                                </p>
+                            </motion.div>
+                        );
+                    })}
+
+                    {/* Scroll indicator */}
+                    <div className="absolute bottom-8 left-0 right-0 text-center text-gray-400 z-50">
+                        ↓ Scroll to see parallax effect ↓
+                    </div>
+                </div>
+
+                {/* Active Step Details */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeStep.label}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4 }}
+                        className="max-w-3xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8"
+                    >
+                        <h3 className="text-xl md:text-2xl font-semibold mb-3 text-white">
+                            {activeStep.heading}
+                        </h3>
+                        <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                            {activeStep.description}
+                        </p>
+                    </motion.div>
+                </AnimatePresence>
+
+                {/* Bottom tagline */}
+                <div className="text-center mt-10 md:mt-12">
+                    <p className="text-sm md:text-base text-gray-300">
+                        From idea to launch in 3 weeks – with{" "}
+                        <span className="text-blue-400 font-medium">zero guesswork</span> in
+                        between.
+                    </p>
+                </div>
             </div>
-
-            {/* Progress / step indicators */}
-            <div className="flex items-center gap-3 md:gap-4">
-              {STEPS.map((step, index) => {
-              const isActive = index === activeIndex;
-              return <button key={step.label} type="button" onClick={() => setActiveIndex(index)} className="group focus:outline-none">
-                    <motion.div className="h-1.5 rounded-full bg-primary/20" animate={{
-                  width: isActive ? 64 : 32,
-                  opacity: isActive ? 1 : 0.45
-                }} transition={{
-                  duration: 0.25
-                }} />
-                    <span className="mt-2 block text-xs text-muted-foreground/80 group-hover:text-foreground transition-colors text-center">
-                      {step.label}
-                    </span>
-                  </button>;
-            })}
-            </div>
-          </div>
-
-          {/* Bottom: active step content */}
-          <div className="mt-10 md:mt-12 grid gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] items-start">
-            {/* Left: heading + description */}
-            <AnimatePresence mode="wait">
-              <motion.div key={activeStep.heading} initial={{
-              opacity: 0,
-              y: 16
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} exit={{
-              opacity: 0,
-              y: -16
-            }} transition={{
-              duration: 0.35,
-              ease: "easeOut"
-            }}>
-                <h3 className="text-xl md:text-2xl font-semibold mb-3 text-primary">
-                  {activeStep.heading}
-                </h3>
-                <p className="text-sm md:text-base text-muted-foreground">
-                  {activeStep.description}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Right: small meta box */}
-            <motion.div key={activeStep.duration} initial={{
-            opacity: 0,
-            y: 16
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} exit={{
-            opacity: 0,
-            y: -16
-          }} transition={{
-            duration: 0.35,
-            ease: "easeOut"
-          }} className="rounded-2xl bg-background/60 border border-border/40 p-4 md:p-5 text-sm md:text-base">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
-                Duration
-              </p>
-              <p className="font-medium mb-4">{activeStep.duration}</p>
-              <p className="text-xs text-muted-foreground">
-                This step is fully collaborative – you'll get checkpoints,
-                reviews, and clear deliverables before we move to the next
-                phase.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Bottom tagline */}
-        <div className="text-center mt-10 md:mt-12">
-          <p className="text-sm md:text-base text-muted-foreground">
-            From idea to launch in 3 weeks – with zero guesswork in between.
-          </p>
-        </div>
-      </motion.div>
-    </section>;
+        </section>
+    );
 };
+
 export default ProcessSection;
