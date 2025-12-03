@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Calendar } from "lucide-react";
+import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 
@@ -124,9 +124,19 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
-                  </Button>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button 
+                      type="submit" 
+                      size="lg" 
+                      className="w-full bg-gradient-to-r from-primary via-accent-purple to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary-foreground font-semibold py-7 text-lg rounded-full shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.7)] transition-all duration-500 group"
+                    >
+                      <span>Send Message</span>
+                      <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                    </Button>
+                  </motion.div>
                 </form>
               </motion.div>
 
