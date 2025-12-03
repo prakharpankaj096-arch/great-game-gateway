@@ -14,7 +14,7 @@ import {
   Code,
   Lightbulb,
   Target,
-  ArrowRight,
+  Sparkles,
 } from "lucide-react";
 
 import { motion } from "framer-motion";

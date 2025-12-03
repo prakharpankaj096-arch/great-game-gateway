@@ -141,7 +141,7 @@ const TestimonialsSection = () => {
               >
                 {/* Gradient overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                
+
                 <div className="relative z-10">
                   <p className="text-sm md:text-base text-foreground/90 leading-relaxed mb-4 md:mb-5 group-hover:text-foreground transition-colors">
                     "{t.quote}"
@@ -171,48 +171,42 @@ const Portfolio = () => {
       category: "SaaS",
       description: "Built a comprehensive financial management platform that helps SMBs track expenses, manage invoices, and generate financial reports. Launched in 4 weeks and now serves 500+ active users.",
       tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      results: "500+ users, $50K MRR in 6 months",
-      image: "🏦"
+      results: "500+ users, $50K MRR in 6 months"
     },
     {
       title: "AI-Powered Job Matching",
       category: "AI/ML",
       description: "Developed an intelligent job matching platform using natural language processing to connect candidates with opportunities. The AI analyzes resumes and job descriptions for perfect matches.",
       tech: ["Next.js", "Python", "OpenAI", "MongoDB"],
-      results: "10K+ matches, 85% accuracy rate",
-      image: "🤖"
+      results: "10K+ matches, 85% accuracy rate"
     },
     {
       title: "Healthcare Appointment System",
       category: "Healthcare",
       description: "Created a HIPAA-compliant telemedicine platform with video consultations, appointment scheduling, and patient records management. Reduced no-shows by 60%.",
       tech: ["React", "Firebase", "WebRTC", "Twilio"],
-      results: "3K+ appointments, 60% reduction in no-shows",
-      image: "🏥"
+      results: "3K+ appointments, 60% reduction in no-shows"
     },
     {
       title: "E-Commerce Marketplace",
       category: "E-Commerce",
       description: "Built a multi-vendor marketplace connecting local artisans with customers. Features include inventory management, payment processing, and shipping integration.",
       tech: ["React", "Express", "PostgreSQL", "Shopify API"],
-      results: "100+ vendors, $200K GMV",
-      image: "🛍️"
+      results: "100+ vendors, $200K GMV"
     },
     {
       title: "EdTech Learning Platform",
       category: "Education",
       description: "Designed and developed an interactive learning platform with video courses, quizzes, progress tracking, and certification. Helped 5K+ students upskill.",
       tech: ["Vue.js", "Django", "AWS", "Vimeo"],
-      results: "5K+ students, 95% completion rate",
-      image: "📚"
+      results: "5K+ students, 95% completion rate"
     },
     {
       title: "Logistics Tracking App",
       category: "Logistics",
       description: "Created a real-time shipment tracking system with route optimization, driver management, and customer notifications. Improved delivery times by 40%.",
       tech: ["React Native", "Node.js", "MongoDB", "Google Maps"],
-      results: "1K+ deliveries/day, 40% faster delivery",
-      image: "🚚"
+      results: "1K+ deliveries/day, 40% faster delivery"
     }
   ];
 
@@ -275,8 +269,8 @@ const Portfolio = () => {
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ 
-                    duration: 0.5, 
+                  transition={{
+                    duration: 0.5,
                     delay: index * 0.1,
                     type: "spring",
                     stiffness: 100
@@ -286,19 +280,13 @@ const Portfolio = () => {
                   <Card className="group relative border-border/50 overflow-hidden h-full bg-card/60 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
                     {/* Gradient overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                    
+
                     {/* Subtle glow on hover */}
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
 
                     <CardHeader className="bg-muted/20 relative z-10">
-                      <div className="flex items-start justify-between">
-                        <motion.div
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          className="text-5xl mb-4"
-                        >
-                          {project.image}
-                        </motion.div>
-                        <Badge 
+                      <div className="flex items-start justify-between mb-4">
+                        <Badge
                           variant="secondary"
                           className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors"
                         >
@@ -326,7 +314,7 @@ const Portfolio = () => {
                               transition={{ delay: index * 0.1 + 0.2 + i * 0.05 }}
                               whileHover={{ scale: 1.1 }}
                             >
-                              <Badge 
+                              <Badge
                                 variant="outline"
                                 className="border-white/10 hover:border-primary/30 hover:bg-primary/5 transition-all"
                               >
@@ -348,8 +336,8 @@ const Portfolio = () => {
                         whileHover={{ x: 5 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
-                        <Button 
-                          variant="link" 
+                        <Button
+                          variant="link"
                           className="p-0 text-primary hover:text-primary-glow transition-colors group/btn"
                         >
                           View Case Study{" "}
@@ -411,8 +399,8 @@ const Portfolio = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="text-lg px-12 py-8 rounded-full bg-gradient-to-r from-primary via-accent-blue to-accent-purple hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(99,102,241,0.3)] hover:shadow-[0_0_60px_rgba(99,102,241,0.5)] transition-all"
                 asChild
               >
