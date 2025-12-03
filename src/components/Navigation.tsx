@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, useScroll } from "framer-motion";
 
+import SparkleButton from "./SparkleButton";
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -76,13 +78,7 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Button
-              asChild
-              variant="outline"
-              className="border border-white/20 hover:border-white/40 text-white hover:bg-white/5 rounded-full px-6"
-            >
-              <Link to="/contact">Start Project</Link>
-            </Button>
+            <SparkleButton to="/contact" className="!py-2 !px-5 text-sm">Start Project</SparkleButton>
           </div>
 
           {/* Mobile Menu Button */}

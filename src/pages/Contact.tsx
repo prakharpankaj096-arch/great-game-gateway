@@ -41,29 +41,49 @@ const Contact = () => {
 
       <main className="flex-1 pt-24">
         {/* Hero */}
-        <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-background">
+        <section className="section-padding bg-gradient-to-b from-background via-background-light to-background relative overflow-hidden">
+          <div className="absolute inset-0 radial-glow opacity-20" />
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="container-custom mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="container-custom mx-auto text-center relative z-10"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Get in Touch</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            >
+              Get in{" "}
+              <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+                Touch
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            >
               Ready to turn your idea into reality? Let's talk about your project and how we can help.
-            </p>
+            </motion.p>
           </motion.div>
         </section>
 
         {/* Contact Section */}
         <section className="section-padding">
           <div className="container-custom mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               {/* Contact Form */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1], type: "spring", stiffness: 100 }}
               >
                 <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -124,27 +144,18 @@ const Contact = () => {
                     />
                   </div>
 
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button 
-                      type="submit" 
-                      size="lg" 
-                      className="w-full bg-gradient-to-r from-primary via-accent-purple to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary-foreground font-semibold py-7 text-lg rounded-full shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.7)] transition-all duration-500 group"
-                    >
-                      <span>Send Message</span>
-                      <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                    </Button>
-                  </motion.div>
+                  <Button type="submit" size="lg" className="w-full">
+                    Send Message
+                  </Button>
                 </form>
               </motion.div>
 
               {/* Contact Info */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1], type: "spring", stiffness: 100 }}
                 className="space-y-6"
               >
                 <div>
