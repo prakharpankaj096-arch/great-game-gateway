@@ -95,32 +95,202 @@ const Process = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-16"
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-16"
             >
               {[
-                { label: "Days to MVP", value: "21", icon: Clock, gradient: "from-primary to-accent-blue" },
-                { label: "Sprint Cycles", value: "3", icon: Target, gradient: "from-accent-blue to-accent-purple" },
-                { label: "Success Rate", value: "100%", icon: Zap, gradient: "from-accent-purple to-primary" },
+                { label: "Days to MVP", value: "21", icon: Clock, gradient: "from-primary to-accent-blue", glowColor: "rgba(99, 102, 241, 0.3)" },
+                { label: "Sprint Cycles", value: "3", icon: Target, gradient: "from-accent-blue to-accent-purple", glowColor: "rgba(59, 130, 246, 0.3)" },
+                { label: "Success Rate", value: "100%", icon: Zap, gradient: "from-accent-purple to-primary", glowColor: "rgba(168, 85, 247, 0.3)" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="relative p-6 rounded-2xl bg-card/40 border border-white/5 hover:border-primary/30 backdrop-blur-sm transition-all group"
+                  transition={{ 
+                    delay: 0.5 + index * 0.1, 
+                    duration: 0.6,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -8,
+                    transition: {
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 20
+                    }
+                  }}
+                  className="relative p-5 rounded-2xl bg-card/70 border border-white/10 hover:border-primary/50 backdrop-blur-xl transition-all group overflow-hidden"
+                  style={{
+                    boxShadow: `0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)`,
+                  }}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`} />
+                  {/* Animated Gradient Background */}
+                  <motion.div 
+                    className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-500`}
+                    animate={{
+                      backgroundPosition: ["0% 0%", "100% 100%"],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    style={{
+                      backgroundSize: "200% 200%",
+                    }}
+                  />
+                  
+                  {/* Enhanced Glow Effect on Hover */}
+                  <motion.div
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at 50% 50%, ${stat.glowColor}, transparent 60%)`,
+                      filter: "blur(24px)",
+                    }}
+                  />
+                  
+                  {/* Animated Border Glow */}
+                  <motion.div
+                    className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: `linear-gradient(135deg, ${stat.glowColor}, transparent 50%, ${stat.glowColor})`,
+                      filter: "blur(2px)",
+                    }}
+                  />
+                  
+                  {/* Shimmer Effect */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-30 pointer-events-none"
+                    style={{
+                      background: `linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%)`,
+                    }}
+                    animate={{
+                      x: ["-100%", "200%"],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatDelay: 3,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  
                   <div className="relative z-10">
-                    <div className={`w-10 h-10 mb-4 rounded-xl bg-gradient-to-br ${stat.gradient} bg-opacity-20 inline-flex items-center justify-center border border-primary/20`}>
-                      <stat.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className={`text-4xl font-bold mb-2 bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
+                    {/* Enhanced Icon Container */}
+                    <motion.div
+                      className={`w-11 h-11 mb-3 rounded-xl bg-gradient-to-br ${stat.gradient} inline-flex items-center justify-center border border-primary/40 shadow-lg group-hover:shadow-2xl transition-all relative overflow-hidden`}
+                      whileHover={{ 
+                        rotate: [0, -10, 10, -10, 0],
+                        scale: 1.15
+                      }}
+                      transition={{ duration: 0.5 }}
+                      style={{
+                        boxShadow: `0 4px 24px ${stat.glowColor}, 0 0 0 1px ${stat.glowColor}40, inset 0 0 24px ${stat.glowColor}30`,
+                      }}
+                    >
+                      {/* Icon Glow */}
+                      <div 
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: `radial-gradient(circle, ${stat.glowColor}, transparent)`,
+                          filter: "blur(8px)",
+                        }}
+                      />
+                      <stat.icon className="w-5 h-5 text-white relative z-10" />
+                    </motion.div>
+                    
+                    {/* Enhanced Value */}
+                    <motion.div
+                      className={`text-3xl md:text-4xl font-bold mb-1.5 bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.6 + index * 0.1 }}
+                      style={{
+                        textShadow: `0 0 40px ${stat.glowColor}, 0 2px 8px rgba(0, 0, 0, 0.3)`,
+                        filter: "drop-shadow(0 0 8px rgba(0, 0, 0, 0.2))",
+                      }}
+                    >
                       {stat.value}
+                    </motion.div>
+                    
+                    {/* Enhanced Label */}
+                    <div className="text-xs font-semibold text-muted-foreground group-hover:text-foreground transition-colors tracking-wide uppercase">
+                      {stat.label}
                     </div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                    
+                    {/* Decorative Accent Line */}
+                    <motion.div
+                      className={`mt-2.5 h-0.5 bg-gradient-to-r ${stat.gradient} rounded-full`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "100%" }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.7 + index * 0.1, duration: 0.8, ease: "easeOut" }}
+                    />
                   </div>
+                  
+                  {/* Enhanced Floating Particles */}
+                  {[...Array(4)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute rounded-full opacity-0 group-hover:opacity-40 transition-opacity duration-500"
+                      style={{
+                        width: `${3 + i * 1.5}px`,
+                        height: `${3 + i * 1.5}px`,
+                        background: `radial-gradient(circle, ${stat.glowColor}, transparent)`,
+                        left: `${15 + i * 22}%`,
+                        top: `${10 + i * 25}%`,
+                        filter: `blur(${1 + i * 0.5}px)`,
+                      }}
+                      animate={{
+                        y: [0, -15, 0],
+                        x: [0, 8, 0],
+                        scale: [1, 1.8, 1],
+                        opacity: [0, 0.4, 0],
+                      }}
+                      transition={{
+                        duration: 2.5 + i * 0.4,
+                        repeat: Infinity,
+                        delay: i * 0.25,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  ))}
+                  
+                  {/* Corner Accents */}
+                  <div 
+                    className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at top right, ${stat.glowColor}40, transparent 70%)`,
+                      filter: "blur(12px)",
+                    }}
+                  />
+                  <div 
+                    className="absolute bottom-0 left-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at bottom left, ${stat.glowColor}40, transparent 70%)`,
+                      filter: "blur(12px)",
+                    }}
+                  />
+                  
+                  {/* Corner Accents */}
+                  <div 
+                    className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at top right, ${stat.glowColor}40, transparent 70%)`,
+                      filter: "blur(12px)",
+                    }}
+                  />
+                  <div 
+                    className="absolute bottom-0 left-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at bottom left, ${stat.glowColor}40, transparent 70%)`,
+                      filter: "blur(12px)",
+                    }}
+                  />
                 </motion.div>
               ))}
             </motion.div>
