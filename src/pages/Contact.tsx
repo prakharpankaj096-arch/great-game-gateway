@@ -190,7 +190,6 @@ const Contact = () => {
                     />
                   </div>
 
-<<<<<<< HEAD
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -214,11 +213,6 @@ const Contact = () => {
                       )}
                     </Button>
                   </motion.div>
-=======
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
-                  </Button>
->>>>>>> 515bb0cd6a907f6ace87bb5a389c2f90a906f3a8
                 </form>
               </motion.div>
 
