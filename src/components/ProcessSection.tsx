@@ -55,10 +55,38 @@ const ProcessCard = ({ process, index }: { process: (typeof processes)[0]; index
         offset: ["start start", "end start"],
     });
 
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
-    const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.6, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.6, 0]);
+  const rotateX = useTransform(scrollYProgress, [0, 1], [0, 5]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -20]);
 
-    return (
+  return (
+    <div
+      ref={container}
+      style={{
+        position: "sticky",
+        top: "100px",
+        marginBottom: "5vh",
+        willChange: "transform",
+      }}
+    >
+      <motion.div
+        style={{ 
+          scale, 
+          opacity, 
+          rotateX,
+          y,
+          willChange: "transform, opacity" 
+        }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.4,
+          ease: [0.25, 0.1, 0.25, 1],
+        }}
+      >
+        {/* Card Container */}
         <div
             ref={container}
             style={{
@@ -82,84 +110,79 @@ const ProcessCard = ({ process, index }: { process: (typeof processes)[0]; index
                 <div
                     className={`
             relative w-full rounded-3xl overflow-hidden
-            bg-black/90
-            bg-gradient-to-br ${process.gradient}
-            backdrop-blur-xl
-            border border-white/5
+            border border-white/10
           `}
-                    style={{
-                        zIndex: 10 + index,
-                        transform: "translateZ(0)",
-                    }}
-                >
-                    {/* Card Content */}
-                    <div className="relative p-12 md:p-20 lg:p-28">
-                        {/* Title */}
-                        <div className="mb-6">
-                            <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-3 tracking-tight">
-                                {process.title}
-                            </h3>
-                            <p className="text-2xl md:text-3xl text-primary font-semibold mb-2">
-                                {process.timeline}
-                            </p>
-                            <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                                {process.phases}
-                            </p>
-                        </div>
+          style={{
+            zIndex: 10 + index,
+            transform: "translateZ(0)",
+          }}
+        >
+          {/* Solid Opaque Background - Prevents content from showing through */}
+          <div 
+            className="absolute inset-0 rounded-3xl"
+            style={{
+              background: `hsl(var(--card))`,
+              zIndex: 0,
+            }}
+          />
+          
+          {/* Gradient Overlay */}
+          <div 
+            className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${process.gradient} opacity-40`}
+            style={{
+              zIndex: 1,
+            }}
+          />
+          
+          {/* Additional opacity layer for extra coverage */}
+          <div 
+            className="absolute inset-0 rounded-3xl"
+            style={{
+              background: `hsl(var(--card) / 0.7)`,
+              zIndex: 2,
+            }}
+          />
+          {/* Card Content */}
+          <div className="relative p-12 md:p-20 lg:p-28 z-10">
+            {/* Title */}
+            <div className="mb-6">
+              <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-3 tracking-tight">
+                {process.title}
+              </h3>
+              <p className="text-2xl md:text-3xl text-primary font-semibold mb-2">
+                {process.timeline}
+              </p>
+              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+                {process.phases}
+              </p>
+            </div>
 
                         {/* Description */}
                         <p className="text-lg md:text-xl text-foreground/80 leading-relaxed max-w-4xl">
                             {process.description}
                         </p>
 
-                        {/* Step Number */}
-                        <div className="absolute top-8 right-8 md:top-12 md:right-12">
-                            <div className="text-9xl md:text-[12rem] font-bold text-white/5 select-none">
-                                {String(index + 1).padStart(2, "0")}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
+            {/* Step Number */}
+            <div className="absolute top-8 right-8 md:top-12 md:right-12">
+              <div className="text-9xl md:text-[12rem] font-bold text-foreground/5 select-none">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+            </div>
+          </div>
         </div>
     );
 };
 
 const ProcessSection = () => {
-    return (
-        <section className="relative py-8 px-4 bg-gradient-to-b from-background via-background-light to-background">
-            <div className="container-custom mx-auto relative z-10">
-                {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-24"
-                >
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-xs md:text-sm tracking-[0.4em] text-muted-foreground mb-6 uppercase font-medium"
-                    >
-                        Our Process
-                    </motion.p>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                        From Idea to{" "}
-                        <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
-                            Launch
-                        </span>
-                    </h2>
-                </motion.div>
-
-                {/* Cards Container - Optimized sticky scroll */}
-                <div className="relative" style={{ paddingTop: "60vh", paddingBottom: "20vh" }}>
-                    {processes.map((process, index) => (
-                        <ProcessCard key={index} process={process} index={index} />
-                    ))}
-                </div>
+  return (
+    <section className="relative py-8 px-4 bg-gradient-to-b from-background via-background-light to-background">
+      <div className="container-custom mx-auto relative z-10">
+        {/* Cards Container - Optimized sticky scroll */}
+        <div className="relative" style={{ paddingTop: "60vh", paddingBottom: "20vh" }}>
+          {processes.map((process, index) => (
+            <ProcessCard key={index} process={process} index={index} />
+          ))}
+        </div>
 
                 {/* Scroll Indicator */}
                 <motion.div

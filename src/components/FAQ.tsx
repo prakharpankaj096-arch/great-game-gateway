@@ -4,6 +4,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
 
 const FAQ = () => {
     const faqs = [
@@ -30,38 +31,58 @@ const FAQ = () => {
     ];
 
     return (
-        <section className="section-padding bg-background text-foreground">
-            <div className="container-custom mx-auto">
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-border bg-muted/30 text-sm font-medium mb-6">
+        <section className="py-20 md:py-24 bg-background text-foreground relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+            <div className="container-custom mx-auto px-4 relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="text-center mb-16"
+                >
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, type: "spring", stiffness: 150 }}
+                        className="inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-border bg-card/60 text-sm font-medium mb-6"
+                    >
                         <span className="mr-2">?</span> FAQs
-                    </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                    </motion.div>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-foreground via-primary to-foreground/60">
                         Questions? We've got answers
                     </h2>
                     <p className="text-muted-foreground">
                         Can't find the answer you're looking for?{" "}
-                        <a href="#" className="text-primary hover:text-primary/80 transition-colors">
+                        <a href="#" className="text-primary hover:text-primary-glow transition-colors duration-300 ease-out">
                             Talk to me now 👋
                         </a>
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="max-w-3xl mx-auto">
                     <Accordion type="single" collapsible className="space-y-4">
                         {faqs.map((faq, index) => (
-                            <AccordionItem
+                            <motion.div
                                 key={index}
-                                value={`item-${index}`}
-                                className="border border-border rounded-2xl bg-card px-6 overflow-hidden data-[state=open]:bg-muted/30 transition-colors"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ delay: index * 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
                             >
-                                <AccordionTrigger className="text-lg font-medium hover:no-underline py-6 [&[data-state=open]>div>svg.lucide-plus]:opacity-0 [&[data-state=open]>div>svg.lucide-minus]:opacity-100">
-                                    {faq.question}
-                                </AccordionTrigger>
-                                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                                    {faq.answer}
-                                </AccordionContent>
-                            </AccordionItem>
+                                <AccordionItem
+                                    value={`item-${index}`}
+                                    className="border border-border rounded-2xl bg-card/60 px-6 overflow-hidden data-[state=open]:bg-card/80 transition-all duration-300 ease-out hover:border-primary/30"
+                                >
+                                    <AccordionTrigger className="text-lg font-medium hover:no-underline py-6 transition-colors duration-300 [&[data-state=open]>div>svg.lucide-plus]:opacity-0 [&[data-state=open]>div>svg.lucide-minus]:opacity-100">
+                                        {faq.question}
+                                    </AccordionTrigger>
+                                    <AccordionContent className="text-muted-foreground pb-6 leading-relaxed transition-colors duration-300">
+                                        {faq.answer}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </motion.div>
                         ))}
                     </Accordion>
                 </div>
