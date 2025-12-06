@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Send, Loader2, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { motion } from "framer-motion";
+import { motion, transform } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
@@ -40,9 +40,41 @@ const Contact = () => {
       if (error) throw error;
 
       toast({
-        title: "Message Sent!",
-        description: "We'll get back to you within 24 hours.",
+        title: (
+          <div className="flex items-center gap-4">
+            {/* Green circle with scale-in animation */}
+            <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shadow-md animate-scale-in">
+              <svg
+                className="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={3}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path
+                  d="M5 13l4 4L19 7"
+                  className="animate-draw-check"
+                  style={{
+                    strokeDasharray: 48,
+                    strokeDashoffset: 48,
+                  }}
+                />
+              </svg>
+            </div>
+
+            {/* Text */}
+            <div className="text-white text-base font-medium leading-snug">
+              We will reach you<br />in 24 hours.
+            </div>
+          </div>
+        ),
+        description: "",
+        className:
+          "fixed bottom-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-green-700 to-green-600 text-white shadow-xl rounded-xl w-[380px] p-5 flex items-center",
       });
+
       setFormData({ name: "", email: "", company: "", message: "" });
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -190,7 +222,6 @@ const Contact = () => {
                     />
                   </div>
 
-<<<<<<< HEAD
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -214,11 +245,6 @@ const Contact = () => {
                       )}
                     </Button>
                   </motion.div>
-=======
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
-                  </Button>
->>>>>>> 515bb0cd6a907f6ace87bb5a389c2f90a906f3a8
                 </form>
               </motion.div>
 
