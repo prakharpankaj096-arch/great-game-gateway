@@ -20,7 +20,7 @@ const FeatureCard = ({ title, description, icon: Icon, delay = 0 }: FeatureCardP
         >
             {/* Hover Gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent-blue/3 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
+
             {/* Subtle glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
 

@@ -22,38 +22,37 @@ const RotatingLogo = ({ variant = "default" }: RotatingLogoProps) => {
           relative flex items-center justify-center
           ${isHero ? "w-[260px] h-[260px]" : "w-[180px] h-[180px]"}
           rounded-[60px]
+          bg-white dark:bg-black
         `}
         style={{
-          background: "linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 50%, #16213e 100%)",
-          border: "5px solid rgba(45, 71, 217, 0.4)",
+          border: "5px solid hsl(var(--primary) / 0.1)",
           boxShadow: `
-            0 0 30px rgba(100, 120, 255, 0.4),
-            0 0 60px rgba(100, 120, 255, 0.2),
-            0 20px 30px rgba(0, 0, 0, 0.7),
-            inset 0 0 40px rgba(100, 120, 255, 0.05)
+            0 0 30px hsl(var(--primary) / 0.05),
+            0 0 60px hsl(var(--primary) / 0.02),
+            0 20px 30px rgba(0, 0, 0, 0.05),
+            inset 0 0 40px hsl(var(--primary) / 0.01)
           `,
         }}
         whileHover={{
           scale: 1.05,
+          borderColor: "hsl(var(--primary) / 0.2)",
           boxShadow: `
-            0 0 40px rgba(100, 120, 255, 0.6),
-            0 0 80px rgba(100, 120, 255, 0.3),
-            0 20px 40px rgba(0, 0, 0, 0.8),
-            inset 0 0 60px rgba(100, 120, 255, 0.1)
+            0 0 40px hsl(var(--primary) / 0.1),
+            0 0 80px hsl(var(--primary) / 0.05),
+            0 20px 40px rgba(0, 0, 0, 0.1),
+            inset 0 0 60px hsl(var(--primary) / 0.02)
           `,
         }}
         transition={{ duration: 0.3 }}
       >
         {/* Infinity Symbol */}
         <motion.svg
-
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 200 100"
           width={isHero ? "400px" : "150px"}
           height={isHero ? "240px" : "150px"}
           style={{
-            filter:
-              "drop-shadow(0 0 50px rgba(26, 7, 72, 0.8)) drop-shadow(0 0 50px rgba(84, 20, 119, 0.9))",
+            filter: "drop-shadow(0 0 20px hsl(var(--primary) / 0.4))",
           }}
         >
           <motion.path
@@ -82,17 +81,13 @@ const RotatingLogo = ({ variant = "default" }: RotatingLogoProps) => {
 
           <defs>
             <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#dff1ff" />
-              <stop offset="100%" stopColor="#caa9ff" />
+              <stop offset="0%" stopColor="hsl(var(--primary))" />
+              <stop offset="100%" stopColor="hsl(var(--foreground))" />
             </linearGradient>
           </defs>
-
-
         </motion.svg>
-      </motion.div >
-
-
-    </div >
+      </motion.div>
+    </div>
   );
 };
 

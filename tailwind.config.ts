@@ -41,8 +41,9 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          blue: "hsl(var(--accent-blue))",
-          purple: "hsl(var(--accent-purple))",
+          blue: "hsl(var(--primary))", /* Aliased to Orange */
+          purple: "hsl(var(--primary))", /* Aliased to Orange */
+          orange: "hsl(var(--primary))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -54,6 +55,17 @@ export default {
         },
         "primary-glow": "hsl(var(--primary-glow))",
         "border-glow": "hsl(var(--border-glow))",
+        "light-black": "hsl(var(--light-black))",
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      fontWeight: {
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -87,3 +99,4 @@ export default {
   },
   plugins: [tailwindcssAnimate],
 } satisfies Config;
+

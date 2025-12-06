@@ -76,7 +76,7 @@ const ProcessCard = ({ process, index }: { process: (typeof processes)[0]; index
           opacity,
           rotateX,
           y,
-          willChange: "transform, opacity",
+          willChange: "transform, opacity"
         }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ const ProcessCard = ({ process, index }: { process: (typeof processes)[0]; index
             transform: "translateZ(0)",
           }}
         >
-          {/* Solid Opaque Background */}
+          {/* Solid Opaque Background - Prevents content from showing through */}
           <div
             className="absolute inset-0 rounded-3xl"
             style={{
@@ -111,7 +111,7 @@ const ProcessCard = ({ process, index }: { process: (typeof processes)[0]; index
             }}
           />
 
-          {/* Additional opacity layer */}
+          {/* Additional opacity layer for extra coverage */}
           <div
             className="absolute inset-0 rounded-3xl"
             style={{

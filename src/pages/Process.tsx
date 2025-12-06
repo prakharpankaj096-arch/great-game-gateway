@@ -21,7 +21,7 @@ const Process = () => {
     {
       week: "Week 1",
       title: "Planning & Design",
-      gradient: "from-primary via-accent-blue to-accent-purple",
+      gradient: "from-white/10 via-white/5 to-transparent",
       items: [
         "Discovery & requirements gathering",
         "User research & persona development",
@@ -32,7 +32,7 @@ const Process = () => {
     {
       week: "Week 2",
       title: "Development & Testing",
-      gradient: "from-accent-blue via-accent-purple to-primary",
+      gradient: "from-white/10 via-white/5 to-transparent",
       items: [
         "Core feature development",
         "Database & API integration",
@@ -43,7 +43,7 @@ const Process = () => {
     {
       week: "Week 3",
       title: "Final Polish & Launch",
-      gradient: "from-accent-purple via-primary to-accent-blue",
+      gradient: "from-white/10 via-white/5 to-transparent",
       items: [
         "Performance optimization",
         "Final UI/UX refinements",
@@ -80,7 +80,7 @@ const Process = () => {
               </motion.p>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
                 From Idea to{" "}
-                <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+                <span className="text-foreground">
                   Launch
                 </span>
               </h1>
@@ -98,23 +98,23 @@ const Process = () => {
               className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-16"
             >
               {[
-                { label: "Days to MVP", value: "21", icon: Clock, gradient: "from-primary to-accent-blue", glowColor: "rgba(99, 102, 241, 0.3)" },
-                { label: "Sprint Cycles", value: "3", icon: Target, gradient: "from-accent-blue to-accent-purple", glowColor: "rgba(59, 130, 246, 0.3)" },
-                { label: "Success Rate", value: "100%", icon: Zap, gradient: "from-accent-purple to-primary", glowColor: "rgba(168, 85, 247, 0.3)" },
+                { label: "Days to MVP", value: "21", icon: Clock, gradient: "from-white to-white", glowColor: "rgba(255, 255, 255, 0.3)" },
+                { label: "Sprint Cycles", value: "3", icon: Target, gradient: "from-white to-white", glowColor: "rgba(255, 255, 255, 0.3)" },
+                { label: "Success Rate", value: "100%", icon: Zap, gradient: "from-white to-white", glowColor: "rgba(255, 255, 255, 0.3)" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    delay: 0.5 + index * 0.1, 
+                  transition={{
+                    delay: 0.5 + index * 0.1,
                     duration: 0.6,
                     type: "spring",
                     stiffness: 100
                   }}
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     y: -8,
                     transition: {
                       type: "spring",
@@ -128,7 +128,7 @@ const Process = () => {
                   }}
                 >
                   {/* Animated Gradient Background */}
-                  <motion.div 
+                  <motion.div
                     className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-500`}
                     animate={{
                       backgroundPosition: ["0% 0%", "100% 100%"],
@@ -142,7 +142,7 @@ const Process = () => {
                       backgroundSize: "200% 200%",
                     }}
                   />
-                  
+
                   {/* Enhanced Glow Effect on Hover */}
                   <motion.div
                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -151,7 +151,7 @@ const Process = () => {
                       filter: "blur(24px)",
                     }}
                   />
-                  
+
                   {/* Animated Border Glow */}
                   <motion.div
                     className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -160,7 +160,7 @@ const Process = () => {
                       filter: "blur(2px)",
                     }}
                   />
-                  
+
                   {/* Shimmer Effect */}
                   <motion.div
                     className="absolute inset-0 opacity-0 group-hover:opacity-30 pointer-events-none"
@@ -177,12 +177,12 @@ const Process = () => {
                       ease: "easeInOut",
                     }}
                   />
-                  
+
                   <div className="relative z-10">
                     {/* Enhanced Icon Container */}
                     <motion.div
-                      className={`w-11 h-11 mb-3 rounded-xl bg-gradient-to-br ${stat.gradient} inline-flex items-center justify-center border border-primary/40 shadow-lg group-hover:shadow-2xl transition-all relative overflow-hidden`}
-                      whileHover={{ 
+                      className={`w-11 h-11 mb-3 rounded-xl bg-gradient-to-br ${stat.gradient} inline-flex items-center justify-center border border-white/20 shadow-lg group-hover:shadow-2xl transition-all relative overflow-hidden`}
+                      whileHover={{
                         rotate: [0, -10, 10, -10, 0],
                         scale: 1.15
                       }}
@@ -192,7 +192,7 @@ const Process = () => {
                       }}
                     >
                       {/* Icon Glow */}
-                      <div 
+                      <div
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                         style={{
                           background: `radial-gradient(circle, ${stat.glowColor}, transparent)`,
@@ -201,7 +201,7 @@ const Process = () => {
                       />
                       <stat.icon className="w-5 h-5 text-white relative z-10" />
                     </motion.div>
-                    
+
                     {/* Enhanced Value */}
                     <motion.div
                       className={`text-3xl md:text-4xl font-bold mb-1.5 bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}
@@ -216,12 +216,12 @@ const Process = () => {
                     >
                       {stat.value}
                     </motion.div>
-                    
+
                     {/* Enhanced Label */}
                     <div className="text-xs font-semibold text-muted-foreground group-hover:text-foreground transition-colors tracking-wide uppercase">
                       {stat.label}
                     </div>
-                    
+
                     {/* Decorative Accent Line */}
                     <motion.div
                       className={`mt-2.5 h-0.5 bg-gradient-to-r ${stat.gradient} rounded-full`}
@@ -231,7 +231,7 @@ const Process = () => {
                       transition={{ delay: 0.7 + index * 0.1, duration: 0.8, ease: "easeOut" }}
                     />
                   </div>
-                  
+
                   {/* Enhanced Floating Particles */}
                   {[...Array(4)].map((_, i) => (
                     <motion.div
@@ -259,32 +259,32 @@ const Process = () => {
                       }}
                     />
                   ))}
-                  
+
                   {/* Corner Accents */}
-                  <div 
+                  <div
                     className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
                       background: `radial-gradient(circle at top right, ${stat.glowColor}40, transparent 70%)`,
                       filter: "blur(12px)",
                     }}
                   />
-                  <div 
+                  <div
                     className="absolute bottom-0 left-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
                       background: `radial-gradient(circle at bottom left, ${stat.glowColor}40, transparent 70%)`,
                       filter: "blur(12px)",
                     }}
                   />
-                  
+
                   {/* Corner Accents */}
-                  <div 
+                  <div
                     className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
                       background: `radial-gradient(circle at top right, ${stat.glowColor}40, transparent 70%)`,
                       filter: "blur(12px)",
                     }}
                   />
-                  <div 
+                  <div
                     className="absolute bottom-0 left-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
                       background: `radial-gradient(circle at bottom left, ${stat.glowColor}40, transparent 70%)`,
@@ -316,7 +316,7 @@ const Process = () => {
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 From Idea to Launch in{" "}
-                <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+                <span className="text-foreground">
                   3 Weeks
                 </span>
               </h2>
@@ -333,7 +333,7 @@ const Process = () => {
                   whileInView={{ scaleY: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, ease: "easeOut" }}
-                  className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent-blue to-accent-purple md:-translate-x-1/2"
+                  className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/20 via-primary/10 to-transparent md:-translate-x-1/2"
                   style={{ transformOrigin: "top" }}
                 />
 
@@ -353,29 +353,28 @@ const Process = () => {
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2 + 0.3, type: "spring", stiffness: 200 }}
-                        className="hidden md:block absolute left-1/2 w-8 h-8 bg-gradient-to-br from-primary via-accent-blue to-accent-purple rounded-full -translate-x-1/2 shadow-[0_0_20px_rgba(99,102,241,0.6)] z-10"
+                        className="hidden md:block absolute left-1/2 w-8 h-8 bg-foreground rounded-full -translate-x-1/2 shadow-lg z-10"
                       />
                       <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2 + 0.3, type: "spring", stiffness: 200 }}
-                        className="md:hidden absolute left-0 w-8 h-8 bg-gradient-to-br from-primary via-accent-blue to-accent-purple rounded-full shadow-[0_0_20px_rgba(99,102,241,0.6)] z-10"
+                        className="md:hidden absolute left-0 w-8 h-8 bg-foreground rounded-full shadow-lg z-10"
                       />
 
                       {/* Content Card */}
                       <motion.div
                         whileHover={{ scale: 1.02, y: -5 }}
-                        className={`ml-12 md:ml-0 md:w-1/2 ${
-                          index % 2 === 0 ? "md:pr-12" : "md:pl-12 md:ml-auto"
-                        } relative group`}
+                        className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12 md:ml-auto"
+                          } relative group`}
                       >
-                        <div className="relative p-8 rounded-2xl bg-card/60 border border-white/10 hover:border-primary/40 backdrop-blur-sm transition-all overflow-hidden">
+                        <div className="relative p-8 rounded-2xl bg-card/60 border border-white/10 hover:border-white/20 backdrop-blur-sm transition-all overflow-hidden">
                           {/* Gradient Background */}
                           <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                          
+
                           {/* Glow Effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
 
                           <div className="relative z-10">
                             <motion.div
@@ -383,7 +382,7 @@ const Process = () => {
                               whileInView={{ opacity: 1 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.2 + 0.1 }}
-                              className="font-bold text-2xl mb-3 bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent"
+                              className="font-bold text-2xl mb-3 text-foreground"
                             >
                               {item.week}
                             </motion.div>
@@ -392,7 +391,7 @@ const Process = () => {
                               whileInView={{ opacity: 1 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.2 + 0.2 }}
-                              className="text-primary font-semibold text-xl mb-6"
+                              className="text-foreground font-semibold text-xl mb-6"
                             >
                               {item.title}
                             </motion.h3>
@@ -424,7 +423,7 @@ const Process = () => {
 
         {/* Enhanced CTA */}
         <section className="section-padding relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent-blue/10 to-accent-purple/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
           <div className="absolute inset-0 radial-glow" />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -444,7 +443,7 @@ const Process = () => {
             </motion.div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Ready to Start Your{" "}
-              <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+              <span className="text-foreground">
                 Journey?
               </span>
             </h2>
@@ -457,7 +456,7 @@ const Process = () => {
             >
               <Button
                 size="lg"
-                className="text-lg px-12 py-8 rounded-full bg-gradient-to-r from-primary via-accent-blue to-accent-purple hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(99,102,241,0.5)] hover:shadow-[0_0_60px_rgba(99,102,241,0.7)] transition-all group"
+                className="text-lg px-12 py-8 rounded-full bg-primary hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(255,95,21,0.5)] hover:shadow-[0_0_60px_rgba(255,95,21,0.7)] transition-all group"
                 asChild
               >
                 <Link to="/contact" className="flex items-center gap-2">

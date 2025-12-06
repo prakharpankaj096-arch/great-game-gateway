@@ -14,8 +14,8 @@ const GlowCard = ({ children, className = "", delay = 0 }: GlowCardProps) => {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1], type: "spring", stiffness: 100 }}
-      whileHover={{ 
-        y: -8, 
+      whileHover={{
+        y: -8,
         scale: 1.02,
         transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1], type: "spring", stiffness: 300, damping: 20 }
       }}

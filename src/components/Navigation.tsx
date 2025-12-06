@@ -23,7 +23,6 @@ const Navigation = () => {
     { path: "/services", label: "Services" },
     { path: "/process", label: "Process" },
     { path: "/portfolio", label: "Portfolio" },
-    { path: "/pricing", label: "Pricing" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -38,30 +37,16 @@ const Navigation = () => {
           maxWidth: isScrolled ? "60rem" : "72rem",
         }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="backdrop-blur-xl bg-black/20 border border-white/10 shadow-[0_8px_32px_rgba(168,85,247,0.15)] w-full"
+        className="backdrop-blur-xl bg-background/80 border border-border/50 shadow-sm w-full"
       >
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center gap-1 group">
             <motion.span
-              className="text-3xl font-bold tracking-tight bg-clip-text text-transparent"
-              style={{
-                backgroundImage: "linear-gradient(to right, #64748b, #ffffff 45%, #ffffff 55%, #64748b)",
-                backgroundSize: "200% auto",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                display: "inline-block"
-              }}
-              initial={{ backgroundPosition: "0% center" }}
-              whileHover={{
-                backgroundPosition: "-200% center",
-                transition: {
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "linear"
-                }
-              }}
+              className="text-3xl font-bold tracking-tight text-foreground"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              g8g
+              g<span className="text-primary">8</span>g
             </motion.span>
           </Link>
 
@@ -71,8 +56,8 @@ const Navigation = () => {
                 key={link.path}
                 to={link.path}
                 className={`text-sm font-medium transition-all duration-200 ${isActive(link.path)
-                  ? "text-white"
-                  : "text-white/70 hover:text-white"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
                   }`}
               >
                 {link.label}
@@ -99,7 +84,7 @@ const Navigation = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block text-sm font-medium transition-colors ${isActive(link.path) ? "text-white" : "text-white/70 hover:text-white"
+                  className={`block text-sm font-medium transition-colors ${isActive(link.path) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   onClick={() => setIsOpen(false)}
                 >

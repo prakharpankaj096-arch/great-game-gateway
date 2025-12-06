@@ -104,7 +104,7 @@ const Contact = () => {
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
               Get in{" "}
-              <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+              <span className="text-primary">
                 Touch
               </span>
             </motion.h1>
