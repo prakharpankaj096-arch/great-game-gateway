@@ -157,7 +157,7 @@ const ProcessSection = () => {
   return (
     <section className="relative py-8 px-4 bg-gradient-to-b from-background via-background-light to-background">
       <div className="container-custom mx-auto relative z-10">
-        {/* Cards Container - Optimized sticky scroll */}
+        {/* Cards Container */}
         <div className="relative" style={{ paddingTop: "60vh", paddingBottom: "20vh" }}>
           {processes.map((process, index) => (
             <ProcessCard key={index} process={process} index={index} />
