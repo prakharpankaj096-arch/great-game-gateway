@@ -1,189 +1,73 @@
+/* SparkleButton.css */
 .sparkle-button-wrapper {
   text-decoration: none;
   display: inline-block;
 }
 
 .sparkle-button {
-  --black-700: hsl(var(--background));
-  --border_radius: 9999px;
-  --transtion: 0.3s ease-in-out;
-  --offset: 2px;
+  --active: 0;
+  --bg: hsl(var(--primary));
+  --base: hsl(var(--primary-foreground));
 
   cursor: pointer;
   position: relative;
-
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 
   transform-origin: center;
-
-  padding: 1rem 2rem;
-  background-color: transparent;
-
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg);
   border: none;
-  border-radius: var(--border_radius);
-  transform: scale(calc(1 + (var(--active, 0) * 0.05)));
+  border-radius: 9999px;
+  /* Full pill shape */
 
-  transition: transform var(--transtion);
-}
-
-.sparkle-button::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 100%;
-  height: 100%;
-  background-color: var(--black-700);
-
-  border-radius: var(--border_radius);
   box-shadow:
-    0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
-    0 0 0 calc(var(--active, 0) * 0.15rem) hsl(var(--primary) / 0.75);
+    0 0 15px hsl(var(--primary) / 0.3),
+    inset 0 0 10px hsl(var(--primary) / 0.1);
 
-  transition: all var(--transtion);
-  z-index: 0;
+  transition: all 0.3s ease-in-out;
 }
 
-.sparkle-button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 100%;
-  height: 100%;
-  background-color: hsl(var(--primary) / 0.75);
-  background-image: radial-gradient(at 51% 89%,
-      hsl(var(--primary-glow) / 1) 0px,
-      transparent 50%),
-    radial-gradient(at 100% 100%, hsl(var(--primary) / 1) 0px, transparent 50%),
-    radial-gradient(at 22% 91%, hsl(var(--primary) / 1) 0px, transparent 50%);
-  background-position: top;
-
-  opacity: var(--active, 0);
-  border-radius: var(--border_radius);
-  transition: opacity var(--transtion);
-  z-index: 2;
-}
-
-.sparkle-button:is(:hover, :focus-visible) {
+/* Hover State */
+.sparkle-button:hover {
   --active: 1;
+  transform: scale(1.05);
+  box-shadow:
+    0 0 25px hsl(var(--primary) / 0.5),
+    inset 0 0 15px hsl(var(--primary) / 0.2);
 }
 
 .sparkle-button:active {
-  transform: scale(1);
+  transform: scale(0.95);
 }
 
-.sparkle-button .dots_border {
-  --size_border: calc(100% + 2px);
-
-  overflow: hidden;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: var(--size_border);
-  height: var(--size_border);
-  background-color: transparent;
-
-  border-radius: var(--border_radius);
-  z-index: -10;
-}
-
-.sparkle-button .dots_border::before {
-  content: "";
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform-origin: left;
-  transform: rotate(0deg);
-
-  width: 100%;
-  height: 2rem;
-  background-color: white;
-
-  mask: linear-gradient(transparent 0%, white 120%);
-  animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* Sparkle Decoration - REMOVED per user request */
 .sparkle-button .sparkle {
-  position: relative;
-  z-index: 10;
-
-  width: 1.75rem;
+  display: none;
 }
 
-.sparkle-button .sparkle .path {
-  fill: currentColor;
-  stroke: currentColor;
-
-  transform-origin: center;
-
-  color: hsl(0, 0%, 100%);
-}
-
-.sparkle-button:is(:hover, :focus) .sparkle .path {
-  animation: path 1.5s linear 0.5s infinite;
-}
-
-.sparkle-button .sparkle .path:nth-child(1) {
-  --scale_path_1: 1.2;
-}
-
-.sparkle-button .sparkle .path:nth-child(2) {
-  --scale_path_2: 1.2;
-}
-
-.sparkle-button .sparkle .path:nth-child(3) {
-  --scale_path_3: 1.2;
-}
-
-@keyframes path {
-
-  0%,
-  34%,
-  71%,
-  100% {
-    transform: scale(1);
-  }
-
-  17% {
-    transform: scale(var(--scale_path_1, 1));
-  }
-
-  49% {
-    transform: scale(var(--scale_path_2, 1));
-  }
-
-  83% {
-    transform: scale(var(--scale_path_3, 1));
-  }
-}
-
+/* Button Text */
 .sparkle-button .text_button {
   position: relative;
-  z-index: 10;
+  z-index: 20;
+  font-weight: 600;
+  color: var(--base);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
 
-  background-image: linear-gradient(90deg,
-      hsla(0 0% 100% / 1) 0%,
-      hsla(0 0% 100% / var(--active, 0)) 120%);
-  background-clip: text;
-  -webkit-background-clip: text;
+/* Animated Border/Ring Effect */
+.sparkle-button::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--primary) / 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-  font-size: 1rem;
-  color: transparent;
+.sparkle-button:hover::before {
+  opacity: 1;
 }

@@ -6,49 +6,41 @@
 
 @layer base {
   :root {
-    --background: 240 20% 4%;
-    --background-light: 240 15% 8%;
-    --surface: 240 20% 10%;
-    --foreground: 210 40% 98%;
-    --card: 240 30% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 240 30% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 243 75% 59%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 243 100% 70%;
-    --accent-blue: 217 91% 60%;
-    --accent-purple: 258 90% 66%;
-    --secondary: 240 15% 12%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 240 10% 15%;
-    --muted-foreground: 215 16% 60%;
-    --accent: 240 15% 12%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 240 20% 15%;
-    --border-glow: 243 75% 59%;
-    --input: 240 20% 15%;
-    --ring: 243 75% 59%;
-    --radius: 1.5rem;
-    --gradient-primary: linear-gradient(110deg, hsl(243 75% 59%), hsl(258 90% 66%));
-    --gradient-hero: linear-gradient(135deg, hsl(243 75% 59% / 0.15), hsl(258 90% 66% / 0.1));
-    --gradient-glow: radial-gradient(circle, hsl(243 100% 70% / 0.3), hsl(258 90% 66% / 0.2), transparent 70%);
-    --gradient-dark: linear-gradient(180deg, hsl(240 20% 4%), hsl(240 25% 2%));
-    --shadow-elegant: 0 10px 30px -10px hsl(243 75% 59% / 0.6);
-    --shadow-glow: 0 0 60px hsl(243 75% 59% / 0.5), 0 0 100px hsl(258 90% 66% / 0.3);
-    --shadow-card: 0 4px 30px hsl(243 75% 59% / 0.4);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* 60% - Dominant Color: White */
+    --background: 0 0% 100%;
+    --background-light: 0 0% 98%;
+    --surface: 0 0% 97%;
+
+    /* 30% - Secondary Color: Black */
+    --foreground: 0 0% 9%;
+    /* Matt Black (#171717) */
+    --secondary: 0 0% 0%;
+    /* Pure Black for backgrounds */
+    --secondary-foreground: 0 0% 100%;
+    /* White text on black */
+    --card-foreground: 0 0% 9%;
+    /* Matt Black */
+    --popover-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    /* Grey */
+
+    --light-black: 0 0% 20%;
+    /* Light Black utility */
+
+    /* 10% - Accent Color: Orange (Safety/International Orange) */
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 24 95% 75%;
+
+    /* Aliases for compatibility */
+    --accent-blue: 24 95% 53%;
+    /* Aliased to Orange */
+    --accent-purple: 24 95% 53%;
+    /* Aliased to Orange */
   }
+
 
   .dark {
     --background: 240 20% 4%;
@@ -99,6 +91,7 @@
     @apply border-border;
   }
 
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -148,25 +141,26 @@
     transform: translate(-50%, -50%);
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, hsl(243 100% 70% / 0.2), hsl(258 90% 66% / 0.15), transparent 70%);
+    background: radial-gradient(circle, hsl(var(--primary) / 0.15), hsl(var(--primary) / 0.1), transparent 70%);
     pointer-events: none;
     z-index: 0;
   }
 
   .neon-border {
-    border: 1px solid hsl(243 75% 59% / 0.3);
-    box-shadow: 0 0 20px hsl(243 75% 59% / 0.2), 0 0 40px hsl(258 90% 66% / 0.15);
+    border: 1px solid hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2), 0 0 40px hsl(var(--primary) / 0.15);
   }
 
   .neon-border:hover {
-    border-color: hsl(243 75% 59% / 0.6);
-    box-shadow: 0 0 30px hsl(243 75% 59% / 0.4), 0 0 60px hsl(258 90% 66% / 0.3);
+    border-color: hsl(var(--primary) / 0.6);
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.3);
   }
 
   .mask-linear-fade {
     mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
     -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
   }
+
 }
 
 @keyframes scale-in {

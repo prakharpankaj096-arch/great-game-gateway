@@ -10,7 +10,7 @@ const About = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navigation />
-      
+
       <main className="flex-1 pt-24">
         {/* Hero */}
         <section className="section-padding bg-gradient-to-b from-background via-background-light to-background relative overflow-hidden">
@@ -29,7 +29,7 @@ const About = () => {
               transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
-              About <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">g8g</span> ♾
+              About <span className="text-primary">g8g</span> ♾
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ const About = () => {
                 whileHover={{ y: -5, scale: 1.02 }}
               >
                 <Card className="border-border bg-card/60 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 group overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <CardContent className="pt-6 relative z-10">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
@@ -113,7 +113,7 @@ const About = () => {
                     >
                       <Target className="h-12 w-12 text-primary mb-4" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Our Mission</h3>
+                    <h3 className="text-2xl font-bold mb-4 group-hover:text-white transition-colors">Our Mission</h3>
                     <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors">
                       To empower innovators by transforming their ideas into exceptional products that drive real business results. We make world-class product development accessible, fast, and reliable.
                     </p>
@@ -128,7 +128,7 @@ const About = () => {
                 whileHover={{ y: -5, scale: 1.02 }}
               >
                 <Card className="border-border bg-card/60 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 group overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <CardContent className="pt-6 relative z-10">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: -5 }}
@@ -136,7 +136,7 @@ const About = () => {
                     >
                       <Eye className="h-12 w-12 text-primary mb-4" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Our Vision</h3>
+                    <h3 className="text-2xl font-bold mb-4 group-hover:text-white transition-colors">Our Vision</h3>
                     <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors">
                       To be the go-to partner for turning ideas into products that scale from MVP to millions of users. We envision a world where great ideas become great products, infinitely ♾.
                     </p>
@@ -176,9 +176,9 @@ const About = () => {
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ 
-                    delay: i * 0.1, 
-                    duration: 0.8, 
+                  transition={{
+                    delay: i * 0.1,
+                    duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1],
                     type: "spring",
                     stiffness: 100
@@ -186,7 +186,7 @@ const About = () => {
                   whileHover={{ y: -8, scale: 1.02 }}
                 >
                   <Card className="border-border bg-card/60 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 group overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     <CardContent className="pt-6 text-center relative z-10">
                       <motion.div
                         whileHover={{ scale: 1.1 }}
@@ -194,7 +194,7 @@ const About = () => {
                       >
                         <Users className="h-12 w-12 text-primary" />
                       </motion.div>
-                      <h3 className="text-xl font-semibold mb-1 group-hover:text-primary transition-colors">Team Member</h3>
+                      <h3 className="text-xl font-semibold mb-1 group-hover:text-white transition-colors">Team Member</h3>
                       <p className="text-muted-foreground mb-2 group-hover:text-foreground/80 transition-colors">Role</p>
                       <p className="text-sm text-muted-foreground group-hover:text-foreground/70 transition-colors">
                         Passionate about building products that make a difference
@@ -209,7 +209,7 @@ const About = () => {
 
         {/* CTA */}
         <section className="section-padding relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent-blue/10 to-accent-purple/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent" />
           <div className="absolute inset-0 radial-glow opacity-15" />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -226,7 +226,7 @@ const About = () => {
               className="text-3xl md:text-5xl font-bold mb-4"
             >
               Ready to Work{" "}
-              <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+              <span className="text-foreground">
                 Together?
               </span>
             </motion.h2>
@@ -247,12 +247,12 @@ const About = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(99,102,241,0.3)] hover:shadow-[0_0_60px_rgba(99,102,241,0.5)] transition-all duration-300" asChild>
+                <Button size="lg" className="bg-primary hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(255,95,21,0.3)] hover:shadow-[0_0_60px_rgba(255,95,21,0.5)] transition-all duration-300" asChild>
                   <Link to="/contact">Get in Touch</Link>
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" variant="outline" className="border-2 border-primary/30 hover:border-primary/60 bg-transparent hover:bg-primary/10 transition-all duration-300" asChild>
+                <Button size="lg" variant="outline" className="border-2 border-white/20 hover:border-white/40 bg-transparent hover:bg-white/10 transition-all duration-300" asChild>
                   <Link to="/services">View Services</Link>
                 </Button>
               </motion.div>

@@ -38,8 +38,8 @@ const ProcessCard = ({
         transition-all duration-500
         ${
           isActive
-            ? "shadow-[0_0_60px_rgba(129,140,248,0.6)]"
-            : "shadow-[0_0_20px_rgba(129,140,248,0.2)]"
+            ? "shadow-[0_0_60px_hsl(var(--primary)/0.6)]"
+            : "shadow-[0_0_20px_hsl(var(--primary)/0.2)]"
         }
       `}
     >
@@ -73,7 +73,7 @@ const ProcessCard = ({
 
       {/* Radial Glow Effect */}
       {isActive && (
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(129,140,248,0.3),transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.3),transparent_60%)] pointer-events-none" />
       )}
 
       {/* Content */}

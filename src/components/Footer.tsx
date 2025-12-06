@@ -28,7 +28,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0a0a0f] text-white pt-20 pb-10 border-t border-white/5">
+    <footer className="bg-black text-white pt-20 pb-10 border-t border-white/10">
       <div className="container mx-auto px-4">
         {/* Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
@@ -128,7 +128,7 @@ const Footer = () => {
           <motion.a
             href="#"
             whileHover={{ scale: 1.1 }}
-            className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-colors"
+            className="w-12 h-12 rounded-full bg-secondary-foreground/5 flex items-center justify-center text-white/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
             <Mail size={20} />
           </motion.a>
