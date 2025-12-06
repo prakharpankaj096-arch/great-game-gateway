@@ -45,7 +45,7 @@ const TestimonialsSection = () => {
   return (
     <section className="py-20 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 radial-glow opacity-20 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
 
       <div className="container-custom mx-auto relative z-10">
         {/* Header */}
@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
             className="text-3xl md:text-4xl font-bold mb-3"
           >
             What Our{" "}
-            <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+            <span className="text-foreground">
               Clients
             </span>{" "}
             Say
@@ -129,7 +129,7 @@ const TestimonialsSection = () => {
                   bg-card/60
                   border
                   border-white/10
-                  hover:border-primary/30
+                  hover:border-white/30
                   shadow-[0_0_40px_rgba(0,0,0,0.35)]
                   backdrop-blur-xl
                   p-5 md:p-6
@@ -147,7 +147,7 @@ const TestimonialsSection = () => {
                     "{t.quote}"
                   </p>
                   <div className="flex flex-col">
-                    <span className="font-semibold text-sm md:text-base group-hover:text-primary transition-colors">
+                    <span className="font-semibold text-sm md:text-base group-hover:text-white transition-colors">
                       {t.name}
                     </span>
                     <span className="text-xs md:text-sm text-muted-foreground group-hover:text-foreground/70 transition-colors">
@@ -242,7 +242,7 @@ const Portfolio = () => {
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
               Our{" "}
-              <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+              <span className="text-foreground">
                 Work
               </span>
             </motion.h1>
@@ -260,7 +260,7 @@ const Portfolio = () => {
 
         {/* Portfolio Grid */}
         <section className="section-padding relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/2 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
           <div className="container-custom mx-auto relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {projects.map((project, index) => (
@@ -277,23 +277,23 @@ const Portfolio = () => {
                   }}
                   whileHover={{ y: -8, scale: 1.02 }}
                 >
-                  <Card className="group relative border-border/50 overflow-hidden h-full bg-card/60 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
+                  <Card className="group relative border-border/50 overflow-hidden h-full bg-card/60 backdrop-blur-sm hover:border-white/30 transition-all duration-300">
                     {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                     {/* Subtle glow on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
 
                     <CardHeader className="bg-muted/20 relative z-10">
                       <div className="flex items-start justify-between mb-4">
                         <Badge
                           variant="secondary"
-                          className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors"
+                          className="bg-secondary text-secondary-foreground border-border hover:bg-secondary/80 transition-colors"
                         >
                           {project.category}
                         </Badge>
                       </div>
-                      <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                      <CardTitle className="text-2xl group-hover:text-white transition-colors">
                         {project.title}
                       </CardTitle>
                     </CardHeader>
@@ -316,7 +316,7 @@ const Portfolio = () => {
                             >
                               <Badge
                                 variant="outline"
-                                className="border-white/10 hover:border-primary/30 hover:bg-primary/5 transition-all"
+                                className="border-white/10 hover:border-white/30 hover:bg-white/10 transition-all"
                               >
                                 {tech}
                               </Badge>
@@ -327,7 +327,7 @@ const Portfolio = () => {
 
                       <div className="mb-4">
                         <h4 className="font-semibold mb-1 text-sm text-foreground/80">Results:</h4>
-                        <p className="text-sm text-muted-foreground group-hover:text-primary/80 transition-colors">
+                        <p className="text-sm text-muted-foreground group-hover:text-white/90 transition-colors">
                           {project.results}
                         </p>
                       </div>
@@ -338,7 +338,7 @@ const Portfolio = () => {
                       >
                         <Button
                           variant="link"
-                          className="p-0 text-primary hover:text-primary-glow transition-colors group/btn"
+                          className="p-0 text-foreground hover:text-white transition-colors group/btn"
                         >
                           View Case Study{" "}
                           <motion.span
@@ -361,7 +361,7 @@ const Portfolio = () => {
 
         {/* CTA */}
         <section className="section-padding relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent-blue/10 to-accent-purple/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent" />
           <div className="absolute inset-0 radial-glow opacity-15" />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -378,7 +378,7 @@ const Portfolio = () => {
               className="text-3xl md:text-5xl font-bold mb-4"
             >
               Ready to See Your Project{" "}
-              <span className="bg-gradient-to-r from-primary via-accent-blue to-accent-purple bg-clip-text text-transparent">
+              <span className="text-foreground">
                 Here?
               </span>
             </motion.h2>
@@ -401,7 +401,7 @@ const Portfolio = () => {
             >
               <Button
                 size="lg"
-                className="text-lg px-12 py-8 rounded-full bg-gradient-to-r from-primary via-accent-blue to-accent-purple hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(99,102,241,0.3)] hover:shadow-[0_0_60px_rgba(99,102,241,0.5)] transition-all"
+                className="text-lg px-12 py-8 rounded-full bg-primary hover:opacity-90 text-white font-semibold shadow-[0_0_40px_rgba(255,95,21,0.3)] hover:shadow-[0_0_60px_rgba(255,95,21,0.5)] transition-all"
                 asChild
               >
                 <Link to="/contact">Start Your Project</Link>

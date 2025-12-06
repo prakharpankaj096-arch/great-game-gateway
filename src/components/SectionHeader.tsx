@@ -15,7 +15,7 @@ const SectionHeader = ({ title, subtitle, centered = true }: SectionHeaderProps)
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
       className={centered ? "text-center mb-12" : "mb-12"}
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-primary-glow bg-clip-text text-transparent">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
         {title}
       </h2>
       {subtitle && (
